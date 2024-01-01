@@ -8,4 +8,5 @@ public enum MeasuringUnit {
     LITRE,
     GRAMS,
     KILOGRAMS,
+    PACK
 }
