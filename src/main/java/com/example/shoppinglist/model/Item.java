@@ -12,7 +12,13 @@ public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Column(name = "NAME")
     private String name;
+
+    @Column(name = "QUANTITY")
     private Float quantity;
+
+    @Column(name = "UNIT")
     private MeasuringUnit unit;
 }
