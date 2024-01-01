@@ -23,7 +23,7 @@ public class ItemController {
     }
 
     @PostMapping()
-    public Item addItem(Item item) {
+    public Item addItem(@RequestBody Item item) {
         this.itemRepository.save(item);
         return item;
     }
