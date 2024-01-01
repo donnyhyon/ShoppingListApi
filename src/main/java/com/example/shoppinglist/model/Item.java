@@ -20,5 +20,5 @@ public class Item {
     private Float quantity;
 
     @Column(name = "UNIT")
-    private MeasuringUnit unit;
+    private String unit;
 }
