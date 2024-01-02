@@ -8,3 +8,7 @@
 `docker start <container name>`
 
 `mvn spring-boot:run`
+
+`npx create-react-app frontend`
+
+`cd frontend && npm start`
