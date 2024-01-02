@@ -3,3 +3,8 @@
 `docker start <container name>`
 
 `docker rm -f <container name>`
+
+
+`docker start <container name>`
+
+`mvn spring-boot:run`
