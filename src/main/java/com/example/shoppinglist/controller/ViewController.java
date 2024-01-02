@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,10 +40,10 @@ public class ViewController {
         return "update-item";
     }
     @PostMapping("/update/{id}")
-    public String updateItem(@PathVariable("id") long id, Item item,BindingResult result, Model model) {
+    public String updateItem(@PathVariable("id") long id, Item item,BindingResult result) {
         if (result.hasErrors()) {
             item.setId(id);
-            return "update-user";
+            return "update-item";
         }
         itemRepository.save(item);
         return "redirect:/index";
@@ -56,6 +57,21 @@ public class ViewController {
         throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No ID found");
         }
         itemRepository.delete(toBeDeletedOptional.get());
+        return "redirect:/index";
+    }
+
+    @GetMapping("/newitem")
+    public String createNewItemForm(Item item) {
+        return "add-item";
+    }
+
+    @PostMapping("/additem")
+    public String addItem(@Validated Item item, BindingResult result) {
+        if (result.hasErrors()) {
+            return "add-item";
+        }
+
+        itemRepository.save(item);
         return "redirect:/index";
     }
 

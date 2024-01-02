@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Adding New Item</title>
+</head>
+<body>
+Adding a new item.
+<form action="#" th:action="@{/additem}" th:object="${item}" method="post">
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}" id="name" placeholder="Item name">
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+    <label for="quantity">Quantity</label>
+    <input type="number" th:field="*{quantity}" id="quantity" placeholder="3">
+    <span th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}"></span>
+    <input type="text" th:field="*{unit}" id="unit" placeholder="packs">
+    <span th:if="${#fields.hasErrors('unit')}" th:errors="*{unit}"></span>
+    <input type="submit" value="Add Item">
+</form>
+
+</body>
+</html>
