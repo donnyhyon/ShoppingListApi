@@ -5,6 +5,7 @@ import com.example.shoppinglist.repositories.ItemRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,6 +27,27 @@ public class ViewController {
         model.addAttribute("items", itemRepository.findAll());
         return "index";
     }
+
+    @GetMapping("/edit/{id}")
+    public String showEditForm(@PathVariable("id") Long id, Model model) {
+        Optional<Item> optionalItem = itemRepository.findById(id);
+        if (optionalItem.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No item found with that ID");
+        }
+        Item item = optionalItem.get();
+        model.addAttribute("item", item);
+        return "update-item";
+    }
+    @PostMapping("/update/{id}")
+    public String updateItem(@PathVariable("id") long id, Item item,BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            item.setId(id);
+            return "update-user";
+        }
+        itemRepository.save(item);
+        return "redirect:/index";
+    }
+
 
     @GetMapping("/delete/{id}")
     public String deleteItem(@PathVariable("id") Long id, Model model) {

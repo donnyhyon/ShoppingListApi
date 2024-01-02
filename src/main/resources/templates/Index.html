@@ -25,6 +25,7 @@
                         <td th:text="${item.name}"></td>
                         <td th:text="${item.quantity}"></td>
                         <td th:text="${item.unit}"></td>
+                        <td><a th:href="@{/edit/{id}(id=${item.id})}">Edit</a></td>
                         <td><a th:href="@{/delete/{id}(id=${item.id})}">Delete</a></td>
                     </tr>
                     </tbody>
