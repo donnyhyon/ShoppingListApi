@@ -27,12 +27,6 @@ public class ViewController {
         return "index";
     }
 
-    @GetMapping("/add-item")
-    public String getNewUserPage() {
-        return "add-item";
-    }
-
-
     @GetMapping("/delete/{id}")
     public String deleteItem(@PathVariable("id") Long id, Model model) {
         Optional<Item> toBeDeletedOptional = itemRepository.findById(id);
@@ -43,9 +37,4 @@ public class ViewController {
         return "redirect:/index";
     }
 
-    @PostMapping("/add-item")
-    public String addItem(@RequestBody Item item, Model model){
-        itemRepository.save(item);
-        return "redirect:/added-item";
-    }
 }
