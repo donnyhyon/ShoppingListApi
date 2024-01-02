@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Items</title>
+    <title>Shopping List</title>
 </head>
 <body>
 <div th:switch="${items}" class="container my-5">
@@ -25,7 +25,7 @@
                         <td th:text="${item.name}"></td>
                         <td th:text="${item.quantity}"></td>
                         <td th:text="${item.unit}"></td>
-
+                        <td><a th:href="@{/delete/{id}(id=${item.id})}">Delete</a></td>
                     </tr>
                     </tbody>
                 </table>
