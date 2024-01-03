@@ -24,7 +24,7 @@ public class ItemController {
         return this.itemRepository.findAll();
     }
 
-    @PostMapping()
+    @PostMapping("/new")
     public Item addItem(@RequestBody Item item) {
         this.itemRepository.save(item);
         return item;
