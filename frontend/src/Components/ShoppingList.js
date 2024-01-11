@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { Table , Button} from 'reactstrap';
+import { Table, Button } from 'reactstrap';
+import AddItemForm from './AdditemForm';
 
 function ShoppingList() {
     const [items, setItems] = useState([])
 
     const getData = async () => {
         try {
-            const response = await fetch ('/shoppinglist');
+            const response = await fetch('/shoppinglist');
             if (response.ok) {
                 const responseData = await response.json();
                 setItems(responseData);
-            }  else {
-            throw new Error('Request failed');
+            } else {
+                throw new Error('Request failed');
             }
         } catch (error) {
             console.log(error);
@@ -20,7 +21,7 @@ function ShoppingList() {
 
     const deleteItem = async (index) => {
         const itemToDelete = items[index];
-        try{
+        try {
             const response = await fetch(`/shoppinglist/${itemToDelete.id}`, {
                 method: 'DELETE'
             })
@@ -29,7 +30,7 @@ function ShoppingList() {
                 const newItems = items.filter((item, i) => i !== index);
                 setItems(newItems);
             }
-        }catch (error) {
+        } catch (error) {
             console.error('Failed to delete item:', error);
         }
 
@@ -40,6 +41,7 @@ function ShoppingList() {
     }, []);
 
     return (
+        <>
         <Table>
             <thead>
                 <tr>
@@ -62,7 +64,11 @@ function ShoppingList() {
                     </tr>
                 ))}
             </tbody>
+            <br/>
+            <Button color="primary">Add Item</Button>
         </Table>
+        <AddItemForm/>
+        </>
     );
 }
 
