@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function ShoppingList() {
+function GetShoppingListJSON() {
     const [data , setData] = useState();
     const [error , setError] = useState();
 
@@ -36,4 +36,4 @@ function ShoppingList() {
     );
 }
 
-export default ShoppingList;
+export default GetShoppingListJSON;
