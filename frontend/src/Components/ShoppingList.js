@@ -3,7 +3,8 @@ import { Table, Button } from 'reactstrap';
 import AddItemForm from './AdditemForm';
 
 function ShoppingList() {
-    const [items, setItems] = useState([])
+    const [items, setItems] = useState([]);
+    const [displayAddItem, setDisplayAddItem] = useState(false);
 
     const getData = async () => {
         try {
@@ -65,9 +66,9 @@ function ShoppingList() {
                 ))}
             </tbody>
             <br/>
-            <Button color="primary">Add Item</Button>
+            <Button color="primary" onClick={()=>setDisplayAddItem(prev => !prev) }>Add Item</Button>
         </Table>
-        <AddItemForm/>
+        {displayAddItem && <AddItemForm/>}
         </>
     );
 }
