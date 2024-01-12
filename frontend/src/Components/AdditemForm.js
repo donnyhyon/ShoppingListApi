@@ -2,8 +2,37 @@ import React from "react";
 import { Form, Row, Col, Label, Input, Button } from 'reactstrap'
 
 function AddItemForm() {
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const newItem = {
+            name: event.target.name.value,
+            quantity: event.target.quantity.value,
+            unit: event.target.unit.value
+        };        
+
+        try {
+            const response = await fetch('/shoppinglist/new', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newItem)
+            });
+            if (response.ok) {
+                const jsonResponse = await response.json();
+                alert(`${JSON.stringify(jsonResponse)} added to the list`)
+            } else {
+                throw new Error('request failed!');
+            }} 
+        catch (error) {
+                console.error(error)
+            }
+        }
+
+
     return (
-        <Form action='shoppinglist/new'>
+        <Form onSubmit={handleSubmit}>
             <Row className="row-cols-lg-auto g-3 align-items-center">
                 <Col>
                     <Label>
@@ -38,7 +67,7 @@ function AddItemForm() {
 
                 <Col>
                 <br/>
-                    <Button>
+                    <Button type="submit">
                         Submit
                     </Button>
                 </Col>
