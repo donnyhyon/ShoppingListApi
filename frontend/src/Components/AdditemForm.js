@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Row, Col, Label, Input, Button } from 'reactstrap'
 
-function AddItemForm() {
+function AddItemForm({addAnotherItemProp, toggleButton}) {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -20,8 +20,11 @@ function AddItemForm() {
                 body: JSON.stringify(newItem)
             });
             if (response.ok) {
-                const jsonResponse = await response.json();
-                alert(`${JSON.stringify(jsonResponse)} added to the list`)
+                const responseData = await response.json();
+                addAnotherItemProp(previousItems => [...previousItems, responseData]);
+                toggleButton();
+                event.target.reset();
+
             } else {
                 throw new Error('request failed!');
             }} 

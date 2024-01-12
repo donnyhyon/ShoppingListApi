@@ -20,6 +20,8 @@ function ShoppingList() {
         }
     };
 
+    const toggleAddItemButton = () =>setDisplayAddItem(prev => !prev);
+
     const deleteItem = async (index) => {
         const itemToDelete = items[index];
         try {
@@ -40,6 +42,8 @@ function ShoppingList() {
     useEffect(() => {
         getData();
     }, []);
+
+    
 
     return (
         <>
@@ -66,9 +70,9 @@ function ShoppingList() {
                 ))}
             </tbody>
             <br/>
-            <Button color="primary" onClick={()=>setDisplayAddItem(prev => !prev) }>Add Item</Button>
+            <Button color="primary" onClick={toggleAddItemButton}>Add Item</Button>
         </Table>
-        {displayAddItem && <AddItemForm/>}
+        {displayAddItem && <AddItemForm toggleButton={toggleAddItemButton} addAnotherItemProp={setItems}/>}
         </>
     );
 }
