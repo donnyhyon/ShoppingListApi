@@ -3,7 +3,7 @@
 `docker pull postgres`
 2. Create a new container if not already done so.
 
-`docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -p 5432 -d postgres`
+`docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres`
 
 3. If container already created, start the container
 
