@@ -25,3 +25,10 @@ Create new react app
 
 Check status of docker containers
 `docker ps -a`
+
+
+Create docker image
+`docker build --tag=shopping-list:latest .`
+
+Run docker iamge
+`docker run -p8080:8080 shopping-list:latest`
