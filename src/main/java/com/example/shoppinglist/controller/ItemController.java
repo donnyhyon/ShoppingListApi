@@ -24,6 +24,13 @@ public class ItemController {
         return this.itemRepository.findAll();
     }
 
+    @GetMapping("/{id}")
+    public Item getItemById(@PathVariable Integer id) {
+        Optional<Item> itemOptional = this.itemRepository.findById(Long.valueOf(id));
+        Item foundItem = itemOptional.get();
+        return foundItem;
+    }
+
     @PostMapping("/new")
     public Item addItem(@RequestBody Item item) {
         this.itemRepository.save(item);
