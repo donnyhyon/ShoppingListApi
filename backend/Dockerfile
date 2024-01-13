@@ -4,4 +4,9 @@ RUN mkdir /app
 
 WORKDIR /app
 
-COPY target/
+COPY target/shoppinglist.jar shoppinglist.jar
+
+EXPOSE 8080
+
+ENTRYPOINT [ "java", "-jar", "shoppinglist.jar" ]
+
