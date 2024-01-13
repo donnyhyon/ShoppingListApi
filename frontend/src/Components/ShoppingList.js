@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Table, Button } from 'reactstrap';
 import AddItemForm from './AdditemForm';
+import EditItemForm from './EditItemForm';
 
 function ShoppingList() {
     const [items, setItems] = useState([]);
     const [displayAddItem, setDisplayAddItem] = useState(false);
+    const [editingIndex, setEditingIndex] = useState();
+
 
     const getData = async () => {
         try {
@@ -21,6 +24,9 @@ function ShoppingList() {
     };
 
     const toggleAddItemButton = () =>setDisplayAddItem(prev => !prev);
+    const toggleEditForm = (index) => {
+        setEditingIndex(previndex => previndex === index ? null : index);
+}
 
     const deleteItem = async (index) => {
         const itemToDelete = items[index];
@@ -36,8 +42,8 @@ function ShoppingList() {
         } catch (error) {
             console.error('Failed to delete item:', error);
         }
-
     }
+   
 
     useEffect(() => {
         getData();
@@ -60,11 +66,15 @@ function ShoppingList() {
             </thead>
             <tbody>
                 {items.map((item, index) => (
-                    <tr key={"row_"+index}>
+                    <tr key={item.id}>
                         <td>{item.name}</td>
                         <td>{item.quantity}</td>
                         <td>{item.unit}</td>
-                        <td><Button color="info">Edit</Button></td>
+                        <td>
+                            <Button color="info" onClick={()=>toggleEditForm(index)}>Edit</Button>
+                            {editingIndex === index && <EditItemForm />}    
+                        </td>
+
                         <td><Button color="danger" onClick={() => deleteItem(index)}>Delete</Button></td>
                     </tr>
                 ))}
