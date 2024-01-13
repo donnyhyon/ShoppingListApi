@@ -9,6 +9,7 @@ function ShoppingList() {
     const [editingIndex, setEditingIndex] = useState();
 
 
+
     const getData = async () => {
         try {
             const response = await fetch('/shoppinglist');
@@ -23,10 +24,12 @@ function ShoppingList() {
         }
     };
 
-    const toggleAddItemButton = () =>setDisplayAddItem(prev => !prev);
+    const toggleAddItemButton = () => setDisplayAddItem(prev => !prev);
     const toggleEditForm = (index) => {
         setEditingIndex(previndex => previndex === index ? null : index);
-}
+    }
+
+    const toggleEditItemButton = () => setEditingIndex(null)
 
     const deleteItem = async (index) => {
         const itemToDelete = items[index];
@@ -43,46 +46,54 @@ function ShoppingList() {
             console.error('Failed to delete item:', error);
         }
     }
-   
+
 
     useEffect(() => {
         getData();
     }, []);
 
-    
+
 
     return (
         <>
-        <Table>
-            <thead>
-                <tr>
-                    <th>Item</th>
-                    <th>Quantity</th>
-                    <th>Units</th>
-                    <th></th>
-                    <th></th>
+            <Table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Units</th>
+                        <th></th>
+                        <th></th>
 
-                </tr>
-            </thead>
-            <tbody>
-                {items.map((item, index) => (
-                    <tr key={item.id}>
-                        <td>{item.name}</td>
-                        <td>{item.quantity}</td>
-                        <td>{item.unit}</td>
-                        <td>
-                            <Button color="info" onClick={()=>toggleEditForm(index)}>Edit</Button>
-                            {editingIndex === index && <EditItemForm />}    
-                        </td>
-
-                        <td><Button color="danger" onClick={() => deleteItem(index)}>Delete</Button></td>
                     </tr>
-                ))}
-            </tbody>
-            <br/>
-            <Button color="primary" onClick={toggleAddItemButton}>Add Item</Button>
-        </Table>
-        {displayAddItem && <AddItemForm toggleButton={toggleAddItemButton} addAnotherItemProp={setItems}/>}
+                </thead>
+                <tbody>
+                    {items.map((item, index) => (
+                        <>
+                        <tr key={item.id}>
+                            <td>{item.name}</td>
+                            <td>{item.quantity}</td>
+                            <td>{item.unit}</td>
+                            <td>
+                                <Button color="info" onClick={() => toggleEditForm(index)}>Edit</Button>
+                            </td>
+                            <td><Button color="danger" onClick={() => deleteItem(index)}>Delete</Button></td>
+                            </tr>
+                    
+                            {editingIndex === index &&  (
+                                <tr>
+                                    <td colSpan={5}>
+                                    <EditItemForm toggleEditItemButton={toggleEditItemButton} updateItemProp={setItems} item={item}/>
+                                    </td>
+                                </tr>
+                            )}
+                        </>
+                    ))}
+                </tbody>
+                <br />
+                <Button color="primary" onClick={toggleAddItemButton}>Add Item</Button>
+            </Table>
+            {displayAddItem && <AddItemForm toggleButton={toggleAddItemButton} addAnotherItemProp={setItems} />}
         </>
     );
 }

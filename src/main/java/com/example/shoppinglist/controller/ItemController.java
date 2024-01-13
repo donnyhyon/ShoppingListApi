@@ -50,6 +50,8 @@ public class ItemController {
         if (!ObjectUtils.isEmpty(newItem.getUnit())) {
             originalItemToUpdate.setUnit(newItem.getUnit());
         }
+
+        this.itemRepository.save(originalItemToUpdate);
         return originalItemToUpdate;
     }
 
