@@ -56,6 +56,8 @@ function ShoppingList() {
 
     return (
         <>
+        <br/>
+        <h1>Shopping List</h1>
             <Table>
                 <thead>
                     <tr>
@@ -77,7 +79,7 @@ function ShoppingList() {
                             <td>
                                 <Button color="info" onClick={() => toggleEditForm(index)}>Edit</Button>
                             </td>
-                            <td><Button color="danger" onClick={() => deleteItem(index)}>Delete</Button></td>
+                            <td><Button color="danger" onClick={() => deleteItem(index)}>Remove</Button></td>
                             </tr>
                     
                             {editingIndex === index &&  (
