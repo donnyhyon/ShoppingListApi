@@ -11,6 +11,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>shoppinglist</artifactId>
 	<version>1.0.0</version>
+	<packaging>jar</packaging>
 	<name>shoppinglist</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -57,7 +58,19 @@
 	</dependencies>
 
 	<build>
+		<sourceDirectory>backend/src/main/java/com/example/shoppinglist</sourceDirectory>
+		<outputDirectory>backend/target</outputDirectory>
+		<finalName>${project.artifactId}</finalName>
+	
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.2.0</version>
+				<configuration>
+					<outputDirectory>backend/target</outputDirectory>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
