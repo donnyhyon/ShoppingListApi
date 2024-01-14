@@ -1,4 +1,4 @@
-package com.example.shoppinglist.repositories;
+package com.example.shoppinglist.repository;
 
 import com.example.shoppinglist.model.Item;
 import org.springframework.data.repository.CrudRepository;
