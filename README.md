@@ -1,3 +1,7 @@
+### Run Tests
+`cd backend && mvn clean test`
+
+
 ### Running using Docker
 `docker compose up --build`
 
