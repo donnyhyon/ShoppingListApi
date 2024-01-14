@@ -82,4 +82,17 @@ public class ItemServiceTests {
         assertEquals(updatedItem.getUnit(), result.getUnit());
     }
 
+    @Test
+    public void testSave(){
+        Item itemToSave = new Item();
+        itemToSave.setId(1L);
+        itemToSave.setName("Sprouts");
+        itemToSave.setQuantity(1.5F);
+        itemToSave.setUnit("kg");
+        when(mockedItemRepository.save(itemToSave)).thenReturn(itemToSave);
+
+        Item result = itemService.save(itemToSave );
+        assertEquals(itemToSave,result);
+    }
+
 }
