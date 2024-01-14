@@ -59,4 +59,27 @@ public class ItemServiceTests {
         assertEquals(item1, result);
     }
 
+    @Test
+    public void testUpdateItem(){
+        Item oldItem = new Item();
+        oldItem.setId(1L);
+        oldItem.setName("Sprouts");
+        oldItem.setQuantity(1.5F);
+        oldItem.setUnit("kg");
+
+        Item updatedItem = new Item();
+        updatedItem.setId(1L);
+        updatedItem.setName("Potato");
+        updatedItem.setQuantity(2F);
+        updatedItem.setUnit("bags");
+
+        when(mockedItemRepository.findById(1L)).thenReturn(Optional.of(oldItem));
+
+        Item result = itemService.updateItem(1, updatedItem );
+        assertEquals(updatedItem.getId(), result.getId());
+        assertEquals(updatedItem.getName(), result.getName());
+        assertEquals(updatedItem.getQuantity(), result.getQuantity());
+        assertEquals(updatedItem.getUnit(), result.getUnit());
+    }
+
 }
