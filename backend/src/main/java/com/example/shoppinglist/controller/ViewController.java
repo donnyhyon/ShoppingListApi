@@ -1,7 +1,7 @@
 package com.example.shoppinglist.controller;
 
 import com.example.shoppinglist.model.Item;
-import com.example.shoppinglist.repositories.ItemRepository;
+import com.example.shoppinglist.repository.ItemRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
