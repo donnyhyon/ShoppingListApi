@@ -11,6 +11,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
@@ -43,7 +44,19 @@ public class ItemServiceTests {
 
         Iterable<Item> result = itemService.findAll();
         assertEquals(items, result);
+    }
 
+    @Test
+    public void testFindByID(){
+        Item item1 = new Item();
+        item1.setId(1L);
+        item1.setName("Sprouts");
+        item1.setQuantity(1.5F);
+        item1.setUnit("kg");
+
+        when(mockedItemRepository.findById(1L)).thenReturn(Optional.of(item1));
+        Item result = itemService.findById(1);
+        assertEquals(item1, result);
     }
 
 }
