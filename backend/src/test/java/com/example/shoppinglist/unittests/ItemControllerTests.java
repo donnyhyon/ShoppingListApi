@@ -65,11 +65,27 @@ public class ItemControllerTests {
         when(mockedItemService.findById(1)).thenReturn(item);
 
         mockMvc.perform(MockMvcRequestBuilders.get("/shoppinglist/1")
-                .contentType(MediaType.APPLICATION_JSON))
+                        .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(1L))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.name").value("Pringles"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.quantity").value(1F))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.unit").value("tube"));
+    }
+
+    @Test
+    public void testAddItem() throws Exception {
+        Item itemToAdd = new Item();
+        itemToAdd.setId(999L);
+        itemToAdd.setName("Potato");
+        itemToAdd.setQuantity(2F);
+        itemToAdd.setUnit("kg");
+
+        when(mockedItemService.save(itemToAdd)).thenReturn(itemToAdd);
+
+        mockMvc.perform(MockMvcRequestBuilders.post("/shoppinglist/new")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"id\":999,\"name\":\"Potato\",\"quantity\":2.0,\"unit\":\"kg\"}"))
+                .andExpect(status().isOk());
     }
 }
