@@ -95,4 +95,21 @@ public class ItemServiceTests {
         assertEquals(itemToSave,result);
     }
 
+    @Test
+    public void testRemoveItem(){
+        Item itemToRemove = new Item();
+        itemToRemove.setId(1L);
+        itemToRemove.setName("Sprouts");
+        itemToRemove.setQuantity(1.5F);
+        itemToRemove.setUnit("kg");
+
+        when(mockedItemRepository.findById(1L)).thenReturn(Optional.of(itemToRemove));
+
+        Item result = itemService.removeItem(1L);
+
+        assertEquals(itemToRemove,result);
+
+
+    }
+
 }
