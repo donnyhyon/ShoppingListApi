@@ -1,3 +1,26 @@
+### Running using Docker
+`docker compose up --build`
+
+#### Stopping docker and removing images
+`docker compose down --rmi all`
+
+#### Just build docker images
+`docker compose up --build`
+
+Check status of docker containers
+`docker ps -a`
+
+Check docker network
+`docker network ls`
+
+`docker network create <network name>`
+
+`docker inspect <network name>`
+
+Useful flags:
+`-it` run in ineractive mode
+`--rm` , removes containers when docker down, Note the 2 "--" before the flag...
+
 ### Running Locally
 1. Pull down latest postgres image from dockerhub
 `docker pull postgres`
@@ -23,10 +46,6 @@ Remove container
 Create new react app
 `npx create-react-app frontend`
 
-Check status of docker containers
-`docker ps -a`
-
-
 Create docker image
 `docker build -t shopping-list:latest .`
 
@@ -34,6 +53,4 @@ Run docker iamge
 `docker run -p8080:8080 -it shopping-list:latest`
 
 
-`docker compose up --build`
 
-`docker compose down --rmi all`
