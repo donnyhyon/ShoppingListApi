@@ -114,4 +114,23 @@ public class ItemControllerTests {
                 .andExpect(status().isOk());
         // TODO: understand why its not returning item object back
     }
+
+    @Test
+    public void testRemoveItem() throws Exception {
+        Item itemToDelete = new Item();
+        itemToDelete.setId(1L);
+        itemToDelete.setName("Sardines");
+        itemToDelete.setQuantity(1F);
+        itemToDelete.setUnit("can");
+
+        when(mockedItemService.removeItem(1L)).thenReturn(itemToDelete);
+
+        mockMvc.perform(MockMvcRequestBuilders.delete("/shoppinglist/1")
+            .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+            .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(1L))
+            .andExpect(MockMvcResultMatchers.jsonPath("$.name").value("Sardines"))
+            .andExpect(MockMvcResultMatchers.jsonPath("$.quantity").value(1L))
+            .andExpect(MockMvcResultMatchers.jsonPath("$.unit").value("can"));
+    }
 }
