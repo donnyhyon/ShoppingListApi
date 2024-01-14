@@ -32,3 +32,8 @@ Create docker image
 
 Run docker iamge
 `docker run -p8080:8080 -it shopping-list:latest`
+
+
+`docker compose up --build`
+
+`docker compose down --rmi all`
