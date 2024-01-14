@@ -17,6 +17,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(ItemController.class)
@@ -87,5 +88,30 @@ public class ItemControllerTests {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\"id\":999,\"name\":\"Potato\",\"quantity\":2.0,\"unit\":\"kg\"}"))
                 .andExpect(status().isOk());
+        // TODO: understand why its not returning item object back
+
+    }
+
+    @Test
+    public void testUpdateItem() throws Exception {
+        Item originalItem = new Item();
+        originalItem.setId(1L);
+        originalItem.setName("Sprouts");
+        originalItem.setQuantity(1.5F);
+        originalItem.setUnit("kg");
+
+        Item updatedItem = new Item();
+        updatedItem.setId(1L);
+        updatedItem.setName("Beans");
+        updatedItem.setQuantity(2.0F);
+        updatedItem.setUnit("kg");
+
+        when(mockedItemService.updateItem(1, updatedItem)).thenReturn(updatedItem);
+
+        mockMvc.perform(MockMvcRequestBuilders.put("/shoppinglist/1")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"id\":1,\"name\":\"Beans\",\"quantity\":2.0,\"unit\":\"kg\"}"))
+                .andExpect(status().isOk());
+        // TODO: understand why its not returning item object back
     }
 }
