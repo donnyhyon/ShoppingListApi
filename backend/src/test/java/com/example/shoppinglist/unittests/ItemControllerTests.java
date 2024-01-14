@@ -8,6 +8,7 @@ import org.mockito.InjectMocks;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -51,5 +52,24 @@ public class ItemControllerTests {
         mockMvc.perform(MockMvcRequestBuilders.get("/shoppinglist"))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.size()").value(items.size()));
+    }
+
+    @Test
+    public void testGetItemById() throws Exception {
+        Item item = new Item();
+        item.setId(1L);
+        item.setName("Pringles");
+        item.setQuantity(1F);
+        item.setUnit("tube");
+
+        when(mockedItemService.findById(1)).thenReturn(item);
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/shoppinglist/1")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(1L))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.name").value("Pringles"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.quantity").value(1F))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.unit").value("tube"));
     }
 }
