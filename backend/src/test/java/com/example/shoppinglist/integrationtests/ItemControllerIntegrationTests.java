@@ -67,6 +67,16 @@ public class ItemControllerIntegrationTests {
         .body("unit", equalTo("pack"));
     }
 
+    @Test
+    public void getItemThatDoesNotExistshouldReturn404() {
+        given()
+        .contentType(ContentType.JSON)
+        .when()
+        .get("/shoppinglist/9999")
+        .then()
+        .statusCode(404);
+    }
+
 
 
 }
