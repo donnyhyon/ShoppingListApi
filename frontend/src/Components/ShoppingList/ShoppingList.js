@@ -1,28 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import { Table, Button } from 'reactstrap';
-import AddItemForm from './AdditemForm';
-import EditItemForm from './EditItemForm';
+import AddItemForm from '../AdditemForm';
+import EditItemForm from '../EditItemForm';
+import { useLoaderData } from 'react-router-dom';
+
+
+// TODO look into implementing react-testing library for get data
+// mocking out 
+
+// next big chunk- looking into using ACTIONS to handle forms, then use "action data" to render into components, rather than load data...
+
+
+// mock out loader data
+// delete will submit form... look into ACTIONS, then action data will modify components...
+
+
+
+// Pass in props into shopping list
+// Router points end point to component +  Loader... holds the api calls
+
 
 function ShoppingList() {
-    const [items, setItems] = useState([]);
+    const { items } = useLoaderData()
     const [displayAddItem, setDisplayAddItem] = useState(false);
     const [editingIndex, setEditingIndex] = useState();
 
-
-
-    const getData = async () => {
-        try {
-            const response = await fetch('/shoppinglist');
-            if (response.ok) {
-                const responseData = await response.json();
-                setItems(responseData);
-            } else {
-                throw new Error('Request failed');
-            }
-        } catch (error) {
-            console.log(error);
-        }
-    };
+    const setItems = () => {};
+    
 
     const toggleAddItemButton = () => setDisplayAddItem(prev => !prev);
     const toggleEditForm = (index) => {
@@ -40,17 +44,12 @@ function ShoppingList() {
 
             if (response.ok) {
                 const newItems = items.filter((item, i) => i !== index);
-                setItems(newItems);
+                // setItems(newItems);
             }
         } catch (error) {
             console.error('Failed to delete item:', error);
         }
     }
-
-
-    useEffect(() => {
-        getData();
-    }, []);
 
 
 

@@ -1,16 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import * as React from "react";
+import * as ReactDOM from "react-dom/client";
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import ShoppingList from "./Components/ShoppingList/ShoppingList";
 import './index.css';
-import App from './App';
-import GetShoppingListJSON from './Components/GetShoppingListJSON';
-import ShoppingList from './Components/ShoppingList';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
+import routes from "./routes";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+
+const router = createBrowserRouter(routes);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ShoppingList />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
-
