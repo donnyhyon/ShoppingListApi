@@ -44,12 +44,29 @@ public class ItemControllerIntegrationTests {
 
     @Test
     public void getItemsShouldReturnItemList() {
-        given().
-            contentType(ContentType.JSON).
-        when().
-            get("/shoppinglist").
-        then().
-            statusCode(200).
-            body("$", hasSize(greaterThan(0))); 
+        given()
+        .contentType(ContentType.JSON)
+        .when()
+        .get("/shoppinglist")
+        .then()
+        .statusCode(200)
+        .body("$", hasSize(greaterThan(0))); 
     }
+
+    @Test
+    public void getItemShouldReturnASingleItem() {
+        given()
+        .contentType(ContentType.JSON)
+        .when()
+        .get("/shoppinglist/1")
+        .then()
+        .statusCode(200)
+        .body("id" , equalTo(1))
+        .body("name", equalTo("Sausages"))
+        .body("quantity", equalTo(12.0F))
+        .body("unit", equalTo("pack"));
+    }
+
+
+
 }
