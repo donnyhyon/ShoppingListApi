@@ -3,10 +3,12 @@
 
 
 ### Running using Docker
-Need to make sure a back-end jar file is created. To do this `cd backend && mvn clean pacakage`
+Need to make sure a back-end jar file is created. To do this `cd backend && mvn clean package`
 
 Then `cd ..` back up to project root to run
 `docker compose up --build`
+
+Access the front end at `localhost:3000`
 
 #### Stopping docker and removing images
 `docker compose down --rmi all`
