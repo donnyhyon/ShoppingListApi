@@ -32,21 +32,7 @@ Access the front end at `localhost:3000`
 #### Just build docker images
 `docker compose up --build`
 
-Check status of docker containers
-`docker ps -a`
-
-Check docker network
-`docker network ls`
-
-`docker network create <network name>`
-
-`docker inspect <network name>`
-
-Useful flags:
-`-it` run in ineractive mode
-`--rm` , removes containers when docker down, Note the 2 "--" before the flag...
-
-### Running Locally
+### Info only: Running docker manually (i.e no dockerfile)
 1. Pull down latest postgres image from dockerhub
 `docker pull postgres`
 2. Create a new container if not already done so.
@@ -57,14 +43,8 @@ Useful flags:
 
 `docker start <container name>`
 
-4. Start back-end
-`mvn spring-boot:run`
 
-5. Start frontend
-`cd frontend && npm start`
-
-
-### Other commands
+### Info only: Other commands
 Remove container
 `docker rm -f <container name>`
 
@@ -77,5 +57,16 @@ Create docker image
 Run docker iamge
 `docker run -p8080:8080 -it shopping-list:latest`
 
+Useful docker flags:
+`-it` run in ineractive mode
+`--rm` , removes containers when docker down, Note the 2 "--" before the flag...
 
+Check status of docker containers
+`docker ps -a`
 
+Check docker network
+`docker network ls`
+
+`docker network create <network name>`
+
+`docker inspect <network name>`
