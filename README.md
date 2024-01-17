@@ -1,6 +1,8 @@
 ### Scripts for local dev
 `./start-fresh.sh` pulls, builds docker DB containers. Packages jar backend + tests. 
+
 `./quick-start.sh` Must have DB image and JAR file compiled. 
+
 `./tear-down.sh` Down and deletes the containers, cleans-up dangling images. 
 
 
