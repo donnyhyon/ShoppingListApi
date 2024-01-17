@@ -1,10 +1,16 @@
+### Scripts
+`./start-fresh.sh` pulls, builds docker DB containers. Packages jar backend + tests. 
+`./quick-start.sh` Must have DB image and JAR file compiled. 
+`./tear-down.sh` Down and deletes the containers, cleans-up dangling images. 
+
+
 ### Run Tests
 `cd backend && mvn clean test`
 
 ### Running with only db dockerised (localdev)
 `cd database && docker build -t db:latest .`
 
-`docker run -p8080:8080 -it db:latest`
+`docker run -5432:5432 -it db:latest`
 
 `cd ../backend && mvn clean package`
 
