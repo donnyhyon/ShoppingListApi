@@ -34,7 +34,6 @@ function ShoppingList(props) {
 
     return (
         <>
-        <br/>
         <h1>Shopping List</h1>
             <Table>
                 <thead>
@@ -49,30 +48,29 @@ function ShoppingList(props) {
                 </thead>
                 <tbody>
                     {items.map((item, index) => (
-                        <>
-                        <tr key={item.id}>
-                            <td>{item.name}</td>
-                            <td>{item.quantity}</td>
-                            <td>{item.unit}</td>
-                            <td>
-                                <Button color="info" onClick={() => toggleEditForm(index)}>Edit</Button>
-                            </td>
-                            <td><Button color="danger" onClick={() => deleteItem(index)}>Remove</Button></td>
-                            </tr>
-                    
-                            {editingIndex === index &&  (
-                                <tr>
-                                    <td colSpan={5}>
-                                    <EditItemForm toggleEditItemButton={toggleEditItemButton} updateItemProp={setItems} item={item}/>
-                                    </td>
+                        <React.Fragment key={item.id}>
+                            <tr>
+                                <td>{item.name}</td>
+                                <td>{item.quantity}</td>
+                                <td>{item.unit}</td>
+                                <td>
+                                    <Button color="info" onClick={() => toggleEditForm(index)}>Edit</Button>
+                                </td>
+                                <td><Button color="danger" onClick={() => deleteItem(index)}>Remove</Button></td>
                                 </tr>
-                            )}
-                        </>
+                        
+                                {editingIndex === index &&  (
+                                    <tr key={"editing_"+ index}>
+                                        <td colSpan={5}>
+                                        <EditItemForm toggleEditItemButton={toggleEditItemButton} updateItemProp={setItems} item={item}/>
+                                        </td>
+                                    </tr>
+                                )}
+                        </React.Fragment>   
                     ))}
                 </tbody>
-                <br />
-                <Button color="primary" onClick={toggleAddItemButton}>Add Item</Button>
             </Table>
+            <Button color="primary" onClick={toggleAddItemButton}>Add Item</Button>
             {displayAddItem && <AddItemForm toggleButton={toggleAddItemButton} addAnotherItemProp={setItems} />}
         </>
     );
