@@ -28,10 +28,10 @@ services:
       - web-db-compose
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres -d shoppinglist-api-db"]
-      interval: 15s
+      interval: 2s
       timeout: 5s
       retries: 5
-      start_period: 10s
+      start_period: 2s
 
   front-end:
     image: frontend
@@ -40,6 +40,10 @@ services:
       dockerfile: Dockerfile
     ports:
       - 3000:3000
+    environment:
+      - REACT_APP_API_URL=api-app
+    volumes:
+      - ./frontend:/webapp
     networks:
       - web-db-compose
     depends_on:
