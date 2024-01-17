@@ -4,7 +4,6 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import ShoppingList from "./Components/ShoppingList/ShoppingList";
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import routes from "./routes";

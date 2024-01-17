@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Table, Button } from 'reactstrap';
-import AddItemForm from '../AdditemForm';
-import EditItemForm from '../EditItemForm';
+import AddItemForm from '../AddItemForm/AdditemForm';
+import EditItemForm from '../EditItemForm/EditItemForm';
 import { useLoaderData } from 'react-router-dom';
 
 
@@ -56,7 +56,7 @@ function ShoppingList() {
     return (
         <>
         <br/>
-        <h1>Shopping List</h1>
+        <h1>Shopping Test test</h1>
             <Table>
                 <thead>
                     <tr>
