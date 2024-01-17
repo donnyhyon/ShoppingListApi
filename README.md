@@ -1,6 +1,16 @@
 ### Run Tests
 `cd backend && mvn clean test`
 
+### Running with only db dockerised (localdev)
+`cd database && docker build -t db:latest .`
+
+`docker run -p8080:8080 -it db:latest`
+
+`cd ../backend && mvn clean package`
+
+`mvn spring-boot:run`
+
+`cd ../frontend && npm start`
 
 ### Running using Docker
 Need to make sure a back-end jar file is created. To do this `cd backend && mvn clean package`

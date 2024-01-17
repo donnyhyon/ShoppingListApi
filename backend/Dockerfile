@@ -10,5 +10,5 @@ EXPOSE 8080
 
 
 
-ENTRYPOINT [ "java", "-jar", "shoppinglist.jar" ]
+ENTRYPOINT [ "java", "-jar", "shoppinglist.jar","--spring.profiles.active=docker" ]
 
