@@ -1,10 +1,10 @@
-import ShoppingList from "./Components/ShoppingList/ShoppingList";
 import shoppingListLoader from "./Components/ShoppingList/shoppingListLoader";
+import ShoppingListContainer from "./Container/ShoppingListcontainer";
 
 const routes = [
   {
     path: "/",
-    element: <ShoppingList/>,
+    element: <ShoppingListContainer/>,
     loader: shoppingListLoader,
   },
 ];

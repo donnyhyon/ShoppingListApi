@@ -20,43 +20,22 @@ import { useLoaderData } from 'react-router-dom';
 // Router points end point to component +  Loader... holds the api calls
 
 
-function ShoppingList() {
-    const { items } = useLoaderData()
-    const [displayAddItem, setDisplayAddItem] = useState(false);
-    const [editingIndex, setEditingIndex] = useState();
+function ShoppingList(props) {
 
-    const setItems = () => {};
-    
-
-    const toggleAddItemButton = () => setDisplayAddItem(prev => !prev);
-    const toggleEditForm = (index) => {
-        setEditingIndex(previndex => previndex === index ? null : index);
-    }
-
-    const toggleEditItemButton = () => setEditingIndex(null)
-
-    const deleteItem = async (index) => {
-        const itemToDelete = items[index];
-        try {
-            const response = await fetch(`/shoppinglist/${itemToDelete.id}`, {
-                method: 'DELETE'
-            })
-
-            if (response.ok) {
-                const newItems = items.filter((item, i) => i !== index);
-                // setItems(newItems);
-            }
-        } catch (error) {
-            console.error('Failed to delete item:', error);
-        }
-    }
-
+    const items = props.items;
+    const toggleEditForm = props.toggleEditForm;
+    const editingIndex = props.editingIndex;
+    const deleteItem = props.deleteItem;
+    const toggleAddItemButton = props.toggleAddItemButton;
+    const setItems = ()=> {};
+    const displayAddItem = props.displayAddItem
+    const toggleEditItemButton = props.toggleEditItemButton
 
 
     return (
         <>
         <br/>
-        <h1>Shopping Test test</h1>
+        <h1>Shopping List</h1>
             <Table>
                 <thead>
                     <tr>
