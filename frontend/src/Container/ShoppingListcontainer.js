@@ -29,6 +29,8 @@ function ShoppingListContainer() {
         setEditingIndex(previndex => previndex === index ? null : index);
     }
 
+    
+
     const toggleEditItemButton = () => setEditingIndex(null)
 
     const deleteItem = async (index) => {

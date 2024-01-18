@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Table, Button } from 'reactstrap';
 import AddItemForm from '../AddItemForm/AdditemForm';
-import EditItemForm from '../EditItemForm/EditItemForm';
-import { useLoaderData } from 'react-router-dom';
+import ShoppingListItem from '../ShoppingListItem/ShoppingListItem';
 
 
 // TODO look into implementing react-testing library for get data
@@ -20,18 +19,11 @@ import { useLoaderData } from 'react-router-dom';
 // Router points end point to component +  Loader... holds the api calls
 
 
-function ShoppingList(props) {
+function ShoppingList({items, displayAddItem,toggleAddItemButton, toggleEditForm, editingIndex, deleteItem, toggleEditItemButton}) {
 
-    const items = props.items;
-    const toggleEditForm = props.toggleEditForm;
-    const editingIndex = props.editingIndex;
-    const deleteItem = props.deleteItem;
-    const toggleAddItemButton = props.toggleAddItemButton;
     const setItems = ()=> {};
-    const displayAddItem = props.displayAddItem
-    const toggleEditItemButton = props.toggleEditItemButton
 
-
+// Question- For UI testing, I want to separate JSX components 
     return (
         <>
         <h1>Shopping List</h1>
@@ -48,25 +40,7 @@ function ShoppingList(props) {
                 </thead>
                 <tbody>
                     {items.map((item, index) => (
-                        <React.Fragment key={item.id}>
-                            <tr>
-                                <td>{item.name}</td>
-                                <td>{item.quantity}</td>
-                                <td>{item.unit}</td>
-                                <td>
-                                    <Button color="info" onClick={() => toggleEditForm(index)}>Edit</Button>
-                                </td>
-                                <td><Button color="danger" onClick={() => deleteItem(index)}>Remove</Button></td>
-                                </tr>
-                        
-                                {editingIndex === index &&  (
-                                    <tr key={"editing_"+ index}>
-                                        <td colSpan={5}>
-                                        <EditItemForm toggleEditItemButton={toggleEditItemButton} updateItemProp={setItems} item={item}/>
-                                        </td>
-                                    </tr>
-                                )}
-                        </React.Fragment>   
+                        <ShoppingListItem item={item} index={index} toggleEditForm={toggleEditForm} editingIndex={editingIndex} deleteItem={deleteItem} toggleEditItemButton={toggleEditItemButton} />
                     ))}
                 </tbody>
             </Table>
