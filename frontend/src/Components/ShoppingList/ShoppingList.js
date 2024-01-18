@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Table, Button } from 'reactstrap';
 import AddItemForm from '../AddItemForm/AdditemForm';
 import ShoppingListItem from '../ShoppingListItem/ShoppingListItem';
+import EditItemForm from '../EditItemForm/EditItemForm';
+
 
 
 // TODO look into implementing react-testing library for get data
@@ -19,14 +21,14 @@ import ShoppingListItem from '../ShoppingListItem/ShoppingListItem';
 // Router points end point to component +  Loader... holds the api calls
 
 
-function ShoppingList({items, displayAddItem,toggleAddItemButton, toggleEditForm, editingIndex, deleteItem, toggleEditItemButton}) {
+function ShoppingList({ items, displayAddItem, toggleAddItemButton, toggleEditForm, editingIndex, deleteItem, toggleEditItemButton }) {
 
-    const setItems = ()=> {};
+    const setItems = () => { };
 
-// Question- For UI testing, I want to separate JSX components 
+    // Question- For UI testing, I want to separate JSX components 
     return (
         <>
-        <h1>Shopping List</h1>
+            <h1>Shopping List</h1>
             <Table>
                 <thead>
                     <tr>
@@ -40,7 +42,19 @@ function ShoppingList({items, displayAddItem,toggleAddItemButton, toggleEditForm
                 </thead>
                 <tbody>
                     {items.map((item, index) => (
-                        <ShoppingListItem item={item} index={index} toggleEditForm={toggleEditForm} editingIndex={editingIndex} deleteItem={deleteItem} toggleEditItemButton={toggleEditItemButton} />
+                        <>
+                            <tr>
+                                <ShoppingListItem item={item} index={index} toggleEditForm={toggleEditForm} editingIndex={editingIndex} deleteItem={deleteItem} toggleEditItemButton={toggleEditItemButton} />
+
+                            </tr>
+                            {editingIndex === index && (
+                                <tr key={"editing_" + index}>
+                                    <td colSpan={5}>
+                                        <EditItemForm toggleEditItemButton={toggleEditItemButton} updateItemProp={setItems} item={item} />
+                                    </td>
+                                </tr>
+                            )}
+                        </>
                     ))}
                 </tbody>
             </Table>
