@@ -2,12 +2,15 @@ import React from 'react';
 import ItemDetails from './ItemDetails';
 import ItemButtons from './ItemButtons';
 
-function ShoppingListItem({item, index, toggleEditForm, editingIndex, deleteItem, toggleEditItemButton}) {
+
+
+function ShoppingListItem({item, index, handleEditClick}) {
+    return(
     <React.Fragment key = {item.id} >
         <ItemDetails item={item}/>
-        <ItemButtons index={index} toggleEditForm={toggleEditForm} editingIndex={editingIndex} deleteItem={deleteItem} toggleEditItemButton={toggleEditItemButton} />
+        <ItemButtons index={index}  handleEditClick={handleEditClick} />
     </React.Fragment>
-    
+    )
 
 }
 

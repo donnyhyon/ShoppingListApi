@@ -21,9 +21,10 @@ import EditItemForm from '../EditItemForm/EditItemForm';
 // Router points end point to component +  Loader... holds the api calls
 
 
-function ShoppingList({ items, displayAddItem, toggleAddItemButton, toggleEditForm, editingIndex, deleteItem, toggleEditItemButton }) {
+function ShoppingList({ items, handleEditClick, displayAddItem, toggleAddItemButton, editingIndex,  toggleEditItemButton }) {
 
     const setItems = () => { };
+
 
     // Question- For UI testing, I want to separate JSX components 
     return (
@@ -44,8 +45,7 @@ function ShoppingList({ items, displayAddItem, toggleAddItemButton, toggleEditFo
                     {items.map((item, index) => (
                         <>
                             <tr>
-                                <ShoppingListItem item={item} index={index} toggleEditForm={toggleEditForm} editingIndex={editingIndex} deleteItem={deleteItem} toggleEditItemButton={toggleEditItemButton} />
-
+                                <ShoppingListItem index={index} item={item} handleEditClick={handleEditClick}  />
                             </tr>
                             {editingIndex === index && (
                                 <tr key={"editing_" + index}>
