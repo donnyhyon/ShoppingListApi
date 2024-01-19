@@ -2,13 +2,6 @@ import React from 'react';
 import ItemDetails from './ItemDetails';
 import ItemButtons from './ItemButtons';
 
-
-
-
-
-
-
-
 function ShoppingListItem({item, index, toggleEditForm, editingIndex, deleteItem, toggleEditItemButton}) {
     <React.Fragment key = {item.id} >
         <ItemDetails item={item}/>
@@ -17,4 +10,5 @@ function ShoppingListItem({item, index, toggleEditForm, editingIndex, deleteItem
     
 
 }
+
 export default ShoppingListItem;
