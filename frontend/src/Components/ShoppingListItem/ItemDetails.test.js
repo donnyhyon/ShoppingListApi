@@ -13,11 +13,14 @@ test("loads items correctly", () =>{
         unit: 'kg'
     }
 
-
     const {getByText} = render(
-    <tr>
-        <ItemDetails item={mockItem}/>
-    </tr>
+        <table>
+            <tbody>
+                <tr>
+                    <ItemDetails item={mockItem}/>
+                </tr>
+            </tbody>
+        </table>
     )
     expect(getByText('Test Item1')).toBeInTheDocument();
     expect(getByText('12')).toBeInTheDocument();
