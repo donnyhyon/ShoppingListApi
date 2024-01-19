@@ -3,11 +3,12 @@ import { Button } from 'reactstrap';
 
 
 
-function ItemButtons() {
+
+function ItemButtons({handleEditClick, index}) {
     return (
         <>
-            <td><Button color="info" onClick={() => toggleEditForm(index)}>Edit</Button></td>
-            <td><Button color="danger" onClick={() => deleteItem(index)}>Remove</Button></td>
+            <td><Button color="info" onClick={() => handleEditClick(index)}>Edit</Button></td>
+            <td><Button color="danger">Remove</Button></td>
         </>
     )
 }
