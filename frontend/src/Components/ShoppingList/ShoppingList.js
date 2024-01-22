@@ -26,7 +26,7 @@ function ShoppingList({ items, handleEditClick, displayAddItem, toggleAddItemBut
     const setItems = () => { };
 
 
-    // Question- For UI testing, I want to separate JSX components 
+    // Question- For UI testing, I want to separate JSX components so that components are only returning jsx elements,  
     return (
         <>
             <h1>Shopping List</h1>

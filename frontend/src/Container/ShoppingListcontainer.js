@@ -3,22 +3,6 @@ import { useLoaderData } from 'react-router-dom';
 import ShoppingList from '../Components/ShoppingList/ShoppingList';
 
 
-
-// TODO look into implementing react-testing library for get data
-// mocking out 
-
-// next big chunk- looking into using ACTIONS to handle forms, then use "action data" to render into components, rather than load data...
-
-
-// mock out loader data
-// delete will submit form... look into ACTIONS, then action data will modify components...
-
-
-
-// Pass in props into shopping list
-// Router points end point to component +  Loader... holds the api calls
-
-
 function ShoppingListContainer() {
     const { items } = useLoaderData()
     const [displayAddItem, setDisplayAddItem] = useState(false);
