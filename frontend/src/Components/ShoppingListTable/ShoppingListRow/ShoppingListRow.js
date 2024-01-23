@@ -1,6 +1,7 @@
 import React from 'react';
-import ShoppingListItem from './ShoppingListItem';
 import EditItemForm from '../../EditItemForm/EditItemForm';
+import ItemDetails from './ItemDetails';
+import ItemButtons from './ItemButtons';
 
 
 function ShoppingListRow({ item, index, handleEditClick, editingIndex,  toggleEditItemButton }) {
@@ -9,7 +10,8 @@ function ShoppingListRow({ item, index, handleEditClick, editingIndex,  toggleEd
     return (
         <>
             <tr>
-                <ShoppingListItem index={index} item={item} handleEditClick={handleEditClick}  />
+                <ItemDetails item={item}/>
+                <ItemButtons index={index}  handleEditClick={handleEditClick} />
             </tr>
             {editingIndex === index && (
                 <tr key={"editing_" + index}>
