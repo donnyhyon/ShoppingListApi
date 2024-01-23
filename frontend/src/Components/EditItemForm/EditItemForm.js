@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Form, Row, Col, Label, Input, Button } from 'reactstrap'
 
+// Struggled to break this component up, didnt think moving the event handlers and  
+
 function EditItemForm(props) {
     const { id, name, quantity, unit } = props.item;
     const [updatedItem, setUpdatedItem] = useState({ id, name, quantity, unit });

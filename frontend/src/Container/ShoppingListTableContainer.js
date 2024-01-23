@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
-import ShoppingList from '../Components/ShoppingList/ShoppingList';
+import ShoppingListTable from '../Components/ShoppingListTable/ShoppingListTable';
 
 
-function ShoppingListContainer() {
+function ShoppingListTableContainer() {
     const { items } = useLoaderData()
     const [displayAddItem, setDisplayAddItem] = useState(false);
     const [editingIndex, setEditingIndex] = useState();
@@ -17,7 +17,6 @@ function ShoppingListContainer() {
 
     const toggleEditItemButton = () => setEditingIndex(null)
 
- 
 
     const deleteItem = async (index) => {
         const itemToDelete = items[index];
@@ -40,9 +39,9 @@ function ShoppingListContainer() {
 
     return (
         <>
-            <ShoppingList items={items} displayAddItem={displayAddItem} toggleAddItemButton={toggleAddItemButton} toggleEditForm={toggleEditForm} deleteItem={deleteItem} toggleEditItemButton={toggleEditItemButton} editingIndex={editingIndex} handleEditClick={handleEditClick}/>
+            <ShoppingListTable items={items} displayAddItem={displayAddItem} toggleAddItemButton={toggleAddItemButton} toggleEditForm={toggleEditForm} deleteItem={deleteItem} toggleEditItemButton={toggleEditItemButton} editingIndex={editingIndex} handleEditClick={handleEditClick}/>
         </>
     );
 }
 
-export default ShoppingListContainer;
+export default ShoppingListTableContainer;

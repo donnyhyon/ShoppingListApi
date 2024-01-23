@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import ShoppingList from './ShoppingList';
+import ShoppingListTable from './ShoppingList';
 
 test('render shopping list home page', () => {
 
@@ -26,7 +26,7 @@ test('render shopping list home page', () => {
   //   }]
 
 
-  // render(<ShoppingList items={items}/>);
+  // render(<ShoppingListTable items={items}/>);
   // const linkElement = screen.getByText(/Shopping List/i);
   // expect(linkElement).toBeInTheDocument();
 });

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Table, Button } from 'reactstrap';
 import AddItemForm from '../AddItemForm/AdditemForm';
-import ShoppingListItem from '../ShoppingListItem/ShoppingListItem';
-import EditItemForm from '../EditItemForm/EditItemForm';
+import ShoppingListRow from './ShoppingListRow/ShoppingListRow';
 
 
 
@@ -21,11 +20,12 @@ import EditItemForm from '../EditItemForm/EditItemForm';
 // Router points end point to component +  Loader... holds the api calls
 
 
-function ShoppingList({ items, handleEditClick, displayAddItem, toggleAddItemButton, editingIndex,  toggleEditItemButton }) {
+
+
+
+function ShoppingListTable({ items, handleEditClick, displayAddItem, toggleAddItemButton, editingIndex,  toggleEditItemButton }) {
 
     const setItems = () => { };
-
-
     // Question- For UI testing, I want to separate JSX components so that components are only returning jsx elements,  
     return (
         <>
@@ -43,18 +43,7 @@ function ShoppingList({ items, handleEditClick, displayAddItem, toggleAddItemBut
                 </thead>
                 <tbody>
                     {items.map((item, index) => (
-                        <>
-                            <tr>
-                                <ShoppingListItem index={index} item={item} handleEditClick={handleEditClick}  />
-                            </tr>
-                            {editingIndex === index && (
-                                <tr key={"editing_" + index}>
-                                    <td colSpan={5}>
-                                        <EditItemForm toggleEditItemButton={toggleEditItemButton} updateItemProp={setItems} item={item} />
-                                    </td>
-                                </tr>
-                            )}
-                        </>
+                        <ShoppingListRow item={item} index ={index} handleEditClick={handleEditClick} editingIndex={editingIndex} toggleEditItemButton={toggleEditItemButton} />
                     ))}
                 </tbody>
             </Table>
@@ -64,4 +53,4 @@ function ShoppingList({ items, handleEditClick, displayAddItem, toggleAddItemBut
     );
 }
 
-export default ShoppingList;
+export default ShoppingListTable;
