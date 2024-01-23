@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, redirect } from 'react-router-dom';
 import ShoppingListTable from '../Components/ShoppingListTable/ShoppingListTable';
 
 
@@ -27,8 +27,7 @@ function ShoppingListTableContainer() {
             })
 
             if (response.ok) {
-                const newItems = items.filter((item, i) => i !== index);
-                // setItems(newItems);
+                return redirect("/");
             }
         } catch (error) {
             console.error('Failed to delete item:', error);
