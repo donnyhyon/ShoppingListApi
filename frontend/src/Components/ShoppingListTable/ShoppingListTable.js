@@ -27,6 +27,8 @@ function ShoppingListTable({ items, handleEditClick, displayAddItem, toggleAddIt
 
     const setItems = () => { };
     // Question- For UI testing, I want to separate JSX components so that components are only returning jsx elements,  
+    // Refactor mapper to map over a "shoppinglistrow" component. 
+
     return (
         <>
             <h1>Shopping List</h1>

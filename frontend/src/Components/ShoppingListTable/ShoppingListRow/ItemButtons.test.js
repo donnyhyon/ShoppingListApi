@@ -1,9 +1,9 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, act } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import ItemButtons from './ItemButtons';
 
-test('renders buttons and handles click events', () => {
+test('renders buttons and handles click events', async () => {
     const mockHandleEditClick = jest.fn();
     const index = 0;
 
@@ -17,13 +17,15 @@ test('renders buttons and handles click events', () => {
         </table>
     );
 
-    const editButton = getByText('Edit');
+    const editButton = getByText('edit');
     const removeButton = getByText('Remove');
 
     expect(editButton).toBeInTheDocument();
     expect(removeButton).toBeInTheDocument();
 
-    fireEvent.click(editButton);
+    await act(async()=> {fireEvent.click(editButton)});
+    
+    expect(editButton.textContent).toBe("editing");
 
     expect(mockHandleEditClick).toHaveBeenCalledWith(index);
 });
