@@ -14,6 +14,7 @@ function ShoppingListTableContainer() {
     }
 
     const handleEditClick = (index) => toggleEditForm(index)
+    const handleDeleteClick = (index) => deleteItem(index)
 
     const toggleEditItemButton = () => setEditingIndex(null)
 
@@ -34,12 +35,11 @@ function ShoppingListTableContainer() {
         }
     }
 
-    // const handleDeleteClick = (index) => deleteItem(index)
 
 
     return (
         <>
-            <ShoppingListTable items={items} displayAddItem={displayAddItem} toggleAddItemButton={toggleAddItemButton} toggleEditForm={toggleEditForm} deleteItem={deleteItem} toggleEditItemButton={toggleEditItemButton} editingIndex={editingIndex} handleEditClick={handleEditClick}/>
+            <ShoppingListTable items={items} handleDeleteClick={handleDeleteClick} displayAddItem={displayAddItem} toggleAddItemButton={toggleAddItemButton} toggleEditForm={toggleEditForm} deleteItem={deleteItem} toggleEditItemButton={toggleEditItemButton} editingIndex={editingIndex} handleEditClick={handleEditClick}/>
         </>
     );
 }

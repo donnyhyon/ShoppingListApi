@@ -23,7 +23,7 @@ import ShoppingListRow from './ShoppingListRow/ShoppingListRow';
 
 
 
-function ShoppingListTable({ items, handleEditClick, displayAddItem, toggleAddItemButton, editingIndex,  toggleEditItemButton }) {
+function ShoppingListTable({ items, handleEditClick, handleDeleteClick, displayAddItem, toggleAddItemButton, editingIndex,  toggleEditItemButton }) {
 
     const setItems = () => { };
     // Question- For UI testing, I want to separate JSX components so that components are only returning jsx elements,  
@@ -45,7 +45,7 @@ function ShoppingListTable({ items, handleEditClick, displayAddItem, toggleAddIt
                 </thead>
                 <tbody>
                     {items.map((item, index) => (
-                        <ShoppingListRow item={item} index ={index} handleEditClick={handleEditClick} editingIndex={editingIndex} toggleEditItemButton={toggleEditItemButton} />
+                        <ShoppingListRow item={item} index ={index} handleEditClick={handleEditClick} handleDeleteClick={handleDeleteClick} editingIndex={editingIndex} toggleEditItemButton={toggleEditItemButton} />
                     ))}
                 </tbody>
             </Table>

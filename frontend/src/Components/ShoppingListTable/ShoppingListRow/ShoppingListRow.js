@@ -4,14 +4,14 @@ import ItemDetails from './ItemDetails';
 import ItemButtons from './ItemButtons';
 
 
-function ShoppingListRow({ item, index, handleEditClick, editingIndex,  toggleEditItemButton }) {
+function ShoppingListRow({ item, index, handleEditClick, editingIndex,  toggleEditItemButton,handleDeleteClick }) {
     const setItems = () => { };
     
     return (
         <>
             <tr>
                 <ItemDetails item={item}/>
-                <ItemButtons index={index}  handleEditClick={handleEditClick} />
+                <ItemButtons index={index}  handleEditClick={handleEditClick} handleDeleteClick={handleDeleteClick} />
             </tr>
             {editingIndex === index && (
                 <tr key={"editing_" + index}>
