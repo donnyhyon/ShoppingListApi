@@ -5,10 +5,8 @@ import ShoppingListTable from '../Components/ShoppingListTable/ShoppingListTable
 
 function ShoppingListTableContainer() {
     const { items } = useLoaderData()
-    const [displayAddItem, setDisplayAddItem] = useState(false);
     const [editingIndex, setEditingIndex] = useState();
 
-    const toggleAddItemButton = () => setDisplayAddItem(prev => !prev);
     const toggleEditForm = (index) => {
         setEditingIndex(previndex => previndex === index ? null : index);
     }
@@ -38,7 +36,7 @@ function ShoppingListTableContainer() {
 
     return (
         <>
-            <ShoppingListTable items={items} handleDeleteClick={handleDeleteClick} displayAddItem={displayAddItem} toggleAddItemButton={toggleAddItemButton} toggleEditForm={toggleEditForm} deleteItem={deleteItem} toggleEditItemButton={toggleEditItemButton} editingIndex={editingIndex} handleEditClick={handleEditClick}/>
+            <ShoppingListTable items={items} handleDeleteClick={handleDeleteClick} toggleEditForm={toggleEditForm} deleteItem={deleteItem} toggleEditItemButton={toggleEditItemButton} editingIndex={editingIndex} handleEditClick={handleEditClick}/>
         </>
     );
 }
