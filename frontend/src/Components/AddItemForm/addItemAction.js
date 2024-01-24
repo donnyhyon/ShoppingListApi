@@ -1,6 +1,8 @@
+import { redirect } from "react-router-dom";
 
-const addItemLoader = async ({request}) => {
-    const data = await request.formData();
+const addItemAction = async ({request}) => {
+    const dataFromForm = await request.formData();
+    const payload = Object.fromEntries(dataFromForm.entries())
 
     try {
         const response = await fetch('/shoppinglist/new', {
@@ -8,11 +10,10 @@ const addItemLoader = async ({request}) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(payload)
         });
         if (response.ok) {
-            const responseData = await response.json();
-            return responseData;
+            return redirect("/");
 
         } else {
             throw new Error('request failed!');
@@ -23,4 +24,4 @@ const addItemLoader = async ({request}) => {
 
 }
 
-export default addItemLoader;
+export default addItemAction;

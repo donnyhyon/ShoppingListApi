@@ -1,41 +1,19 @@
 import React from "react";
-import { Form, Row, Col, Label, Input, Button } from 'reactstrap'
+import { Row, Col, Label, Input, Button } from 'reactstrap'
+import { Form, useSubmit } from "react-router-dom";
 
-function AddItemForm({addAnotherItemProp, toggleButton}) {
+// Question- problem with clearing the form using actions and react router's form. Had to re-implement useSubmit.. is this correct? is there a better way?
 
-    const handleSubmit = async (event) => {
+function AddItemForm() {
+    const submit = useSubmit();
+    const handleSubmit = (event) => {
         event.preventDefault();
-        const newItem = {
-            name: event.target.name.value,
-            quantity: event.target.quantity.value,
-            unit: event.target.unit.value
-        };        
-
-        try {
-            const response = await fetch('/shoppinglist/new', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(newItem)
-            });
-            if (response.ok) {
-                const responseData = await response.json();
-                addAnotherItemProp(previousItems => [...previousItems, responseData]);
-                toggleButton();
-                event.target.reset();
-
-            } else {
-                throw new Error('request failed!');
-            }} 
-        catch (error) {
-                console.error(error)
-            }
-        }
-
+        submit(event.currentTarget.form);
+        event.currentTarget.form.reset();
+    }
 
     return (
-        <Form onSubmit={handleSubmit}>
+        <Form method="POST" action="/" >
             <Row className="row-cols-lg-auto g-3 align-items-center">
                 <Col>
                     <Label>
@@ -70,7 +48,7 @@ function AddItemForm({addAnotherItemProp, toggleButton}) {
 
                 <Col>
                 <br/>
-                    <Button type="submit">
+                    <Button type="submit" onClick={handleSubmit}>
                         Submit
                     </Button>
                 </Col>
