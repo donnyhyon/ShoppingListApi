@@ -1,41 +1,11 @@
 import React from "react";
-import { Form, Row, Col, Label, Input, Button } from 'reactstrap'
+import { Row, Col, Label, Input, Button } from 'reactstrap'
+import { Form } from "react-router-dom";
 
-function AddItemForm({addAnotherItemProp, toggleButton}) {
-
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        const newItem = {
-            name: event.target.name.value,
-            quantity: event.target.quantity.value,
-            unit: event.target.unit.value
-        };        
-
-        try {
-            const response = await fetch('/shoppinglist/new', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(newItem)
-            });
-            if (response.ok) {
-                const responseData = await response.json();
-                addAnotherItemProp(previousItems => [...previousItems, responseData]);
-                toggleButton();
-                event.target.reset();
-
-            } else {
-                throw new Error('request failed!');
-            }} 
-        catch (error) {
-                console.error(error)
-            }
-        }
-
+function AddItemForm() {
 
     return (
-        <Form onSubmit={handleSubmit}>
+        <Form method="POST" action="/">
             <Row className="row-cols-lg-auto g-3 align-items-center">
                 <Col>
                     <Label>
