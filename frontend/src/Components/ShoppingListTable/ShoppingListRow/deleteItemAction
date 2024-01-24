@@ -1,0 +1,16 @@
+    const deleteItemAction = async (itemToDelete) => {
+        try {
+            const response = await fetch(`/shoppinglist/${itemToDelete.id}`, {
+                method: 'DELETE'
+            })
+
+            if (response.ok) {
+                return redirect("/");
+            }
+        } catch (error) {
+            console.error('Failed to delete item:', error);
+        }
+    }
+
+
+export default deleteItemAction;

@@ -42,7 +42,7 @@ function ShoppingListTable({ items, handleEditClick, handleDeleteClick, editingI
                 </thead>
                 <tbody>
                     {items.map((item, index) => (
-                        <ShoppingListRow item={item} index ={index} handleEditClick={handleEditClick} handleDeleteClick={handleDeleteClick} editingIndex={editingIndex} toggleEditItemButton={toggleEditItemButton} />
+                        <ShoppingListRow item={item} index ={index} handleEditClick={handleEditClick} editingIndex={editingIndex} toggleEditItemButton={toggleEditItemButton} />
                     ))}
                 </tbody>
             </Table>
