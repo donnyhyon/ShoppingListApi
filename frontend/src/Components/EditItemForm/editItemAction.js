@@ -1,3 +1,5 @@
+import { redirect } from "react-router-dom";
+
 const editItemAction = async ({request}) => {
     const formData = await request.formData();
     const itemToUpdate = Object.fromEntries(formData.entries())
@@ -12,8 +14,8 @@ const editItemAction = async ({request}) => {
         });
 
         if (response.ok) {
-            // return redirect("/");
-            return null;
+            return redirect("/");
+            // return null;
 
         } else {
             throw new Error('Update failed')
