@@ -12,6 +12,7 @@ const editItemAction = async ({request}) => {
         });
 
         if (response.ok) {
+            // return redirect("/");
             return null;
 
         } else {
