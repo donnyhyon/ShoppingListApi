@@ -1,8 +1,8 @@
 import { redirect } from "react-router-dom";
 
 const addItemAction = async ({request}) => {
-    const dataFromForm = await request.formData();
-    const payload = Object.fromEntries(dataFromForm.entries())
+    const formData = await request.formData();
+    const payload = Object.fromEntries(formData.entries())
 
     try {
         const response = await fetch('/shoppinglist/new', {
