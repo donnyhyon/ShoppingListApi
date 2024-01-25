@@ -17,7 +17,7 @@ const routes = [
         action: addItemAction,
       },
       {
-        path: "/",
+        path: "/delete",
         element: <ItemButtons />,
         action: deleteItemAction,
       },      
