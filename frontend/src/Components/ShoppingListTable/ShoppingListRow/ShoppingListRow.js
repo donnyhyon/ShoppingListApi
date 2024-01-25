@@ -4,11 +4,8 @@ import ItemDetails from './ItemDetails';
 import ItemButtons from './ItemButtons';
 
 
-function ShoppingListRow({ item, index, handleEditClick, editingIndex,  toggleEditItemButton }) {
-
-
-
-    
+function ShoppingListRow({ item, index, handleEditClick, editingIndex }) {
+   
     return (
         <>
             <tr>

@@ -25,7 +25,6 @@ function ShoppingListTable({ items }) {
     const [editingIndex, setEditingIndex] = useState();
     const toggleEditForm = (index) => setEditingIndex(previndex => previndex === index ? null : index);
     const handleEditClick = (index) => toggleEditForm(index)
-    const toggleEditItemButton = () => setEditingIndex(null)
 
     return (
         <>
@@ -46,7 +45,7 @@ function ShoppingListTable({ items }) {
                 </thead>
                 <tbody>
                     {items.map((item, index) => (
-                        <ShoppingListRow item={item} index ={index} handleEditClick={handleEditClick} editingIndex={editingIndex} toggleEditItemButton={toggleEditItemButton} />
+                        <ShoppingListRow item={item} index ={index} handleEditClick={handleEditClick} editingIndex={editingIndex} />
                     ))}
                 </tbody>
             </Table>
