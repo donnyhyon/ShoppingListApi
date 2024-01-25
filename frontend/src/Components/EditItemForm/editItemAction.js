@@ -15,7 +15,6 @@ const editItemAction = async ({request}) => {
 
         if (response.ok) {
             return redirect("/");
-            // return null;
 
         } else {
             throw new Error('Update failed')

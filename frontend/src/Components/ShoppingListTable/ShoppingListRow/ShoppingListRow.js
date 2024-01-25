@@ -5,7 +5,9 @@ import ItemButtons from './ItemButtons';
 
 
 function ShoppingListRow({ item, index, handleEditClick, editingIndex,  toggleEditItemButton }) {
-    const setItems = () => { };
+
+
+
     
     return (
         <>
@@ -16,7 +18,7 @@ function ShoppingListRow({ item, index, handleEditClick, editingIndex,  toggleEd
             {editingIndex === index && (
                 <tr key={"editing_" + index}>
                     <td colSpan={5}>
-                        <EditItemForm toggleEditItemButton={toggleEditItemButton} updateItemProp={setItems} item={item} />
+                        <EditItemForm item={item} />
                     </td>
                 </tr>
             )}
