@@ -12,7 +12,7 @@ const routes = [
     loader: shoppingListLoader,
     children: [
       {
-        path: "/",
+        path: "/create",
         element: <AddItemForm />,
         action: addItemAction,
       },

@@ -13,7 +13,8 @@ const addItemAction = async ({request}) => {
             body: JSON.stringify(payload)
         });
         if (response.ok) {
-            return redirect("/");
+            return null;
+            // return redirect("/");
 
         } else {
             throw new Error('request failed!');
