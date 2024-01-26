@@ -2,7 +2,7 @@
 
 const shoppingListLoader = async () => {
     try {
-        const response = await fetch('/shoppinglist');
+        const response = await fetch('/api/shoppinglist');
         if (response.ok) {
             const responseData = await response.json();
             return {items: responseData};

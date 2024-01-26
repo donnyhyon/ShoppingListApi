@@ -10,7 +10,7 @@ function ItemButtons({handleEditClick, index, item}) {
             item,
             {
             method: "DELETE",
-            action: "/delete",
+            action: "/shoppinglist/delete",
         })
     }
 

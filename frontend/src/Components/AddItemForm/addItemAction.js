@@ -5,7 +5,7 @@ const addItemAction = async ({request}) => {
     const payload = Object.fromEntries(formData.entries())
 
     try {
-        const response = await fetch('/shoppinglist/new', {
+        const response = await fetch('/api/shoppinglist/new', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -13,8 +13,7 @@ const addItemAction = async ({request}) => {
             body: JSON.stringify(payload)
         });
         if (response.ok) {
-            // return null;
-            return redirect("/");
+            return redirect("/shoppinglist");
 
         } else {
             throw new Error('request failed!');

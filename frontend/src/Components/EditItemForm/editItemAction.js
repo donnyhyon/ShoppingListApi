@@ -3,9 +3,9 @@ import { redirect } from "react-router-dom";
 const editItemAction = async ({request}) => {
     const formData = await request.formData();
     const itemToUpdate = Object.fromEntries(formData.entries())
-    //Question- feedback regarding the null returns
+
     try {
-        const response = await fetch(`/shoppinglist/${itemToUpdate.id}`, {
+        const response = await fetch(`/api/shoppinglist/${itemToUpdate.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -14,7 +14,7 @@ const editItemAction = async ({request}) => {
         });
 
         if (response.ok) {
-            return redirect("/");
+            return redirect("/shoppinglist");
 
         } else {
             throw new Error('Update failed')
