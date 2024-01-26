@@ -21,7 +21,7 @@ function AddItemForm() {
                     <InputField label="Item" name="item" placeholderText="Item" />
                     <InputField label="Quantity" name="quantity" placeholderText="Quantity" />
                     <InputField label="Units" name="unit" placeholderText="Units" />
-                    <Col><br/><Button type="submit" label="Submit" onClick={handleSubmit}>Submit</Button></Col>
+                    <Col><br/><Button type="submit" onClick={handleSubmit}>Submit</Button></Col>
 
                 </Row>
             </Form>
