@@ -2,9 +2,6 @@ import React from 'react';
 import { Button } from 'reactstrap';
 import { useSubmit } from 'react-router-dom';
 
-// Cannot see how to initiate an action without a form... So I am ending up wrapping my Buttons in Forms, is this best practise?
-
-
 function ItemButtons({handleEditClick, index, item}) {
     const submit = useSubmit();
     
