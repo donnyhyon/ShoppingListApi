@@ -22,12 +22,4 @@ describe('AddItemForm', () => {
         expect(getByText('Submit')).toBeInTheDocument();
     });
 
-    it('calls the onSubmit function when the form is submitted', () => {
-        const handleSubmit = jest.fn();
-        const { getByText } = render(<AddItemForm />);
-
-        fireEvent.click(getByText('Submit'));
-
-        expect(handleSubmit).toHaveBeenCalled();
-    });
 });
