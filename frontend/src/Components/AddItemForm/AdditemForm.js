@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Row, Button, Col } from 'reactstrap'
+import { Row, Col, Label, Input, Button } from 'reactstrap'
 import { Form, useSubmit } from "react-router-dom";
 import InputField from "./InputField/InputField";
 
@@ -21,8 +21,6 @@ function AddItemForm() {
                     <InputField label="Item" name="item" placeholderText="Item" />
                     <InputField label="Quantity" name="quantity" placeholderText="Quantity" />
                     <InputField label="Units" name="unit" placeholderText="Units" />
-                    <Col><br/><Button type="submit" onClick={handleSubmit}>Submit</Button></Col>
-
                 </Row>
             </Form>
             <br/>
