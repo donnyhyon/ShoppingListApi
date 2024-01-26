@@ -6,6 +6,7 @@ import { BrowserRouter, createBrowserRouter } from 'react-router-dom';
 
 describe('AddItemForm', () => {
 // Question - struggling to unit test with useSubmit hooks
+// Question - how would you mock the submit test?
     it('renders correctly', () => {
         const mockRoutes = [
             {
