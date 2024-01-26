@@ -19,11 +19,6 @@ function EditItemForm(props) {
         setDraftItem({ ...draftItem, [event.target.name]: event.target.value });
     }
 
-
-    // submit hook will submit the form to itself
-    // action will then take that data and hit the API
-    // look to loader. 
-    // router 
     const submit = useSubmit();
     const handleSubmit = () => {
         submit(
@@ -34,8 +29,6 @@ function EditItemForm(props) {
             }
         )
     }
-
-
 
     return (
         <>
