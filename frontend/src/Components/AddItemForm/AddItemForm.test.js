@@ -6,7 +6,6 @@ import { BrowserRouter, createBrowserRouter } from 'react-router-dom';
 
 describe('AddItemForm', () => {
 // Question - struggling to unit test with useSubmit hooks
-// Question - how would you mock the submit test?
     it('renders correctly', () => {
         const mockRoutes = [
             {
@@ -23,4 +22,12 @@ describe('AddItemForm', () => {
         expect(getByText('Submit')).toBeInTheDocument();
     });
 
+    it('calls the onSubmit function when the form is submitted', () => {
+        const handleSubmit = jest.fn();
+        const { getByText } = render(<AddItemForm />);
+
+        fireEvent.click(getByText('Submit'));
+
+        expect(handleSubmit).toHaveBeenCalled();
+    });
 });
