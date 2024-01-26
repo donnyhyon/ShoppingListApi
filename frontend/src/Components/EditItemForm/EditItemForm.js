@@ -3,27 +3,15 @@ import { useSubmit } from "react-router-dom";
 import {Form, Row, Col, Label, Input, Button } from 'reactstrap'
 import editItemAction from "./editItemAction";
 
-// break out handlesubmit method, 
-
-// action fired by react router, when submit the form
-
-// react router useSubmit
 
 function EditItemForm(props) {
-    // initial items
     const { id, name, quantity, unit } = props.item;
-    //rename draft / temp state 
     const [draftItem, setDraftItem] = useState({ id, name, quantity, unit });
 
     const handleChange = (event) => {
         setDraftItem({ ...draftItem, [event.target.name]: event.target.value });
     }
 
-
-    // submit hook will submit the form to itself
-    // action will then take that data and hit the API
-    // look to loader. 
-    // router 
     const submit = useSubmit();
     const handleSubmit = () => {
         submit(
@@ -34,8 +22,6 @@ function EditItemForm(props) {
             }
         )
     }
-
-
 
     return (
         <>
