@@ -50,7 +50,7 @@ public class ItemControllerTests {
 
         when(mockedItemService.findAll()).thenReturn(items);
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/shoppinglist"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/shoppinglist"))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.size()").value(items.size()));
     }
@@ -65,7 +65,7 @@ public class ItemControllerTests {
 
         when(mockedItemService.findById(1)).thenReturn(item);
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/shoppinglist/1")
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/shoppinglist/1")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(1L))
@@ -84,7 +84,7 @@ public class ItemControllerTests {
 
         when(mockedItemService.save(itemToAdd)).thenReturn(itemToAdd);
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/shoppinglist/new")
+        mockMvc.perform(MockMvcRequestBuilders.post("/api/shoppinglist/new")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\"id\":999,\"name\":\"Potato\",\"quantity\":2.0,\"unit\":\"kg\"}"))
                 .andExpect(status().isOk());
@@ -108,7 +108,7 @@ public class ItemControllerTests {
 
         when(mockedItemService.updateItem(1, updatedItem)).thenReturn(updatedItem);
 
-        mockMvc.perform(MockMvcRequestBuilders.put("/shoppinglist/1")
+        mockMvc.perform(MockMvcRequestBuilders.put("/api/shoppinglist/1")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\"id\":1,\"name\":\"Beans\",\"quantity\":2.0,\"unit\":\"kg\"}"))
                 .andExpect(status().isOk());
@@ -125,7 +125,7 @@ public class ItemControllerTests {
 
         when(mockedItemService.removeItem(1L)).thenReturn(itemToDelete);
 
-        mockMvc.perform(MockMvcRequestBuilders.delete("/shoppinglist/1")
+        mockMvc.perform(MockMvcRequestBuilders.delete("/api/shoppinglist/1")
             .contentType(MediaType.APPLICATION_JSON))
             .andExpect(status().isOk())
             .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(1L))

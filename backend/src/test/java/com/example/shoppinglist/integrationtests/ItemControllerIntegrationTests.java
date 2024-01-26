@@ -47,7 +47,7 @@ public class ItemControllerIntegrationTests {
         given()
         .contentType(ContentType.JSON)
         .when()
-        .get("/shoppinglist")
+        .get("/api/shoppinglist")
         .then()
         .statusCode(200)
         .body("$", hasSize(greaterThan(0))); 
@@ -58,7 +58,7 @@ public class ItemControllerIntegrationTests {
         given()
         .contentType(ContentType.JSON)
         .when()
-        .get("/shoppinglist/1")
+        .get("/api/shoppinglist/1")
         .then()
         .statusCode(200)
         .body("id" , equalTo(1))
@@ -72,7 +72,7 @@ public class ItemControllerIntegrationTests {
         given()
         .contentType(ContentType.JSON)
         .when()
-        .get("/shoppinglist/9999")
+        .get("/api/shoppinglist/9999")
         .then()
         .statusCode(404);
     }
