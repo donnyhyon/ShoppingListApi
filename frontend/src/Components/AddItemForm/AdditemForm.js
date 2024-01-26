@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Row, Col, Label, Input, Button } from 'reactstrap'
 import { Form, useSubmit } from "react-router-dom";
+import InputField from "./InputField/InputField";
 
 // Question- problem with clearing the form using actions and react router's form. Had to re-implement useSubmit.. is this correct? is there a better way?
 
@@ -13,47 +14,18 @@ function AddItemForm() {
     }
 
     return (
-        <Form method="POST" action="/shoppinglist/create" >
-            <Row className="row-cols-lg-auto g-3 align-items-center">
-                <Col>
-                    <Label>
-                        Item
-                    </Label>
-                    <Input
-                        id="name"
-                        name="name"
-                        placeholder="Item"
-                    />
-                </Col>
-                <Col>
-                    <Label>
-                        Quantity
-                    </Label>
-                    <Input
-                        id="quantity"
-                        name="quantity"
-                        placeholder="quantity"
-                    />
-                </Col>
-                <Col>
-                    <Label>
-                        Units
-                    </Label>
-                    <Input
-                        id="unit"
-                        name="unit"
-                        placeholder="units"
-                    />
-                </Col>
+        <Fragment>
+            <h3> Add Item </h3>
+            <Form method="POST" action="/create" >
+                <Row className="row-cols-lg-auto g-3 align-items-center">
+                    <InputField label="Item" name="item" placeholderText="Item" />
+                    <InputField label="Quantity" name="quantity" placeholderText="Quantity" />
+                    <InputField label="Units" name="unit" placeholderText="Units" />
+                </Row>
+            </Form>
+            <br/>
+        </Fragment>
 
-                <Col>
-                <br/>
-                    <Button type="submit" onClick={handleSubmit}>
-                        Submit
-                    </Button>
-                </Col>
-            </Row>
-        </Form>
     )
 }
 
