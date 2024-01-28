@@ -1,0 +1,15 @@
+trigger:
+- main
+
+pool:
+  name: 'FoodAppAgents'
+  
+
+steps:
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'backend/pom.xml'
+    mavenOptions: '-Xmx3072m'
+    javaHomeOption: 'JDKVersion'
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    goals: 'clean test'   
