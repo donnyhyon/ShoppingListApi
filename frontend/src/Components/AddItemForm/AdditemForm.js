@@ -13,7 +13,7 @@ function AddItemForm() {
     }
 
     return (
-        <Form method="POST" action="/create" >
+        <Form method="POST" action="/shoppinglist/create" >
             <Row className="row-cols-lg-auto g-3 align-items-center">
                 <Col>
                     <Label>

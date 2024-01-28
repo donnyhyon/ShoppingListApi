@@ -18,7 +18,7 @@ function EditItemForm(props) {
             draftItem,
             {
                 method: "put",
-                action: "/edit",
+                action: "/shoppinglist/edit",
             }
         )
     }

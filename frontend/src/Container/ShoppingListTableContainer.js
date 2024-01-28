@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { useLoaderData, redirect } from 'react-router-dom';
+import React from 'react';
+import { useLoaderData } from 'react-router-dom';
 import ShoppingListTable from '../Components/ShoppingListTable/ShoppingListTable';
-
 
 function ShoppingListTableContainer() {
     const { items } = useLoaderData()
