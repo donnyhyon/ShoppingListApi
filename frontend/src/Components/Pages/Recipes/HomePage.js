@@ -1,9 +1,8 @@
-import NavBar from "../../NavBar/NavBar"
 
 function HomePage () {
     return(
         <>
-        <NavBar />
+        <h1> This is homepage</h1>
         </>
     )
 }
