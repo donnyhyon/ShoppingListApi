@@ -1,7 +1,10 @@
+import NavBar from "../../NavBar/NavBar"
 
 function HomePage () {
     return(
-        <h1> This is a home Page</h1>
+        <>
+        <NavBar />
+        </>
     )
 }
 
