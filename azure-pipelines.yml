@@ -12,4 +12,4 @@ steps:
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'   
+    goals: 'clean test'   
