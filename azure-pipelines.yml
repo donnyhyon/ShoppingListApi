@@ -26,6 +26,7 @@ stages:
               cd frontend
               npm install
               npm test
+          displayName: Run front end tests"
 
   # - stage: Deploy
   #   jobs:
