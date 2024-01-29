@@ -1,6 +1,6 @@
 
 trigger:
-  - *
+  - '*'
 pool:
   name: FoodAppAgents
 stages:
