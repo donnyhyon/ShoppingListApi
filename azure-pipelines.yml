@@ -1,6 +1,6 @@
 
 trigger:
-  - branches:
+  branches:
     include:
       - main
       - '*'
