@@ -23,6 +23,6 @@ stages:
               goals: Package
   - stage: Deploy
     jobs:
-      - job: Deploying backend to Azure
+      - job: Deploy_backend_to_azure
         steps:
           - script: echo "Coming Soon!"
