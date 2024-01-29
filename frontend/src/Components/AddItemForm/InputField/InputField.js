@@ -6,12 +6,13 @@ function InputField({label,name, placeholderText }) {
         <Col>
             <Label>
                 {label}
-            </Label>
-            <Input
+                <Input
                 id={name}
                 name={name}
                 placeholder={placeholderText}
             />
+            </Label>
+
         </Col>
     )
 }

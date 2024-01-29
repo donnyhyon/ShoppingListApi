@@ -20,9 +20,9 @@ function ItemButtons({handleEditClick, index, item}) {
     
     return (
         <>
-            <td><Button color="info" onClick={() => handleEditClick(index)}>Edit</Button></td>
+            <td><Button data-testId="ItemButtons.EditButton" color="info" onClick={() => handleEditClick(index)}>Edit</Button></td>
 
-            <td><Button color='danger' onClick={()=> handleDeleteClick(item)}>Delete</Button></td>
+            <td><Button data-testId="ItemButtons.DeleteButton" color='danger' onClick={()=> handleDeleteClick(item)}>Delete</Button></td>
         </>
     )
 }

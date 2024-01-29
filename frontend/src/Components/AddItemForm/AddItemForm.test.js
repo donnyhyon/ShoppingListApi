@@ -1,12 +1,14 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import AddItemForm from './AdditemForm';
-import { BrowserRouter, createBrowserRouter } from 'react-router-dom';
+import customRenderer from '../../Utils/customRenderer';
+
+
 
 
 describe('AddItemForm', () => {
-// Question - struggling to unit test with useSubmit hooks
-// Question - how would you mock the submit test?
+    // Question - struggling to unit test with useSubmit hooks
+    // Question - how would you mock the submit test?
     it('renders correctly', () => {
         const mockRoutes = [
             {
@@ -15,7 +17,9 @@ describe('AddItemForm', () => {
                 loader: () => FAKE_EVENT,
             }
         ]
-        const { getByLabelText, getByText } = render(<AddItemForm />, {wrapper:BrowserRouter});
+        // const { getByLabelText, getByText } = render(<AddItemForm />, {wrapper:MemoryRouter});
+
+        const { getByLabelText, getByText } = customRenderer(<AddItemForm />);
 
         expect(getByLabelText('Item')).toBeInTheDocument();
         expect(getByLabelText('Quantity')).toBeInTheDocument();
