@@ -20,8 +20,8 @@ stages:
               publishJUnitResults: true
               testResultsFiles: "**/surefire-reports/TEST-*.xml"
               goals: package
-  - stage: Deploy
-    jobs:
-      - job: Deploy_backend_to_azure
-        steps:
-          - script: echo "Coming Soon!"
+  # - stage: Deploy
+  #   jobs:
+  #     - job: Deploy_backend_to_azure
+  #       steps:
+  #         - script: echo "Coming Soon!"
