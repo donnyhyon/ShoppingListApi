@@ -22,4 +22,5 @@ stages:
     jobs:
       - job: Deploying backend to Azure
     steps:
-      - script: echo "Coming Soon!"
+      step:
+        - script: echo "Coming Soon!"
