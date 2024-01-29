@@ -9,7 +9,7 @@ pool:
 stages:
   - stage: "TestBuild"
     jobs:
-      - job: Maven_build
+      - job: Mavenbuild
         steps:
           - task: Maven@3
             inputs:
