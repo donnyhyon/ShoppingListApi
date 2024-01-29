@@ -13,6 +13,7 @@ function AddItemForm() {
         event.currentTarget.form.reset();
     }
 
+    // HTML form is valid.
     return (
         <Fragment>
             <h3> Add Item </h3>
