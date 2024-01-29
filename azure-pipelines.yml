@@ -9,7 +9,7 @@ pool:
 stages:
   - stage: "TestBuild"
     jobs:
-      - job: Mavenbuild
+      - job: Backend
         steps:
           - task: Maven@3
             inputs:
@@ -20,6 +20,14 @@ stages:
               publishJUnitResults: true
               testResultsFiles: "**/surefire-reports/TEST-*.xml"
               goals: package
+      - job: Frontend
+        steps:
+          - script: |
+            cd frontend
+            npm install
+            npm test
+          displayName: "Run frontend tests"
+
   # - stage: Deploy
   #   jobs:
   #     - job: Deploy_backend_to_azure
