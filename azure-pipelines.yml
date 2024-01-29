@@ -1,7 +1,9 @@
 
 trigger:
   - branches:
-    - *
+    include:
+      - main
+      - *
 pool:
   name: FoodAppAgents
 stages:
