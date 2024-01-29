@@ -1,28 +1,25 @@
+
 trigger:
-- main
-
+  - main
 pool:
-  name: 'FoodAppAgents'
-
-
+  name: FoodAppAgents
 stages:
-- stage: Test and Build Backend
-  jobs:
-  - job: Maven build
+  - stage: Test and Build Backend
+    jobs:
+      - job: Maven build
+        steps:
+          - task: Maven@3
+            inputs:
+              mavenPomFile: backend/pom.xml
+              mavenOptions: -Xmx3072m
+              javaHomeOption: JDKVersion
+              jdkVersionOption: "1.11"
+              jdkArchitectureOption: x64
+              publishJUnitResults: true
+              testResultsFiles: "**/surefire-reports/TEST-*.xml"
+              goals: Package
+  - stage: Deploy
+    jobs:
+      - job: Deploying backend to Azure
     steps:
-    - task: Maven@3
-      inputs:
-        mavenPomFile: 'backend/pom.xml'
-        mavenOptions: '-Xmx3072m'
-        javaHomeOption: 'JDKVersion'
-        jdkVersionOption: '1.11'
-        jdkArchitectureOption: 'x64'
-        publishJUnitResults: true
-        testResultsFiles: '**/surefire-reports/TEST-*.xml'
-        goals: 'Package'   
-
-- stage: Deploy
-  jobs:
-  - job: Deploying backend to Azure
-  steps:
-  - script: echo "Coming Soon!"
+      - script: echo "Coming Soon!"
