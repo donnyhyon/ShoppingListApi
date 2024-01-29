@@ -7,7 +7,7 @@ trigger:
 pool:
   name: FoodAppAgents
 stages:
-  - stage: "Test and Build Backend"
+  - stage: Test_and_build_backend
     jobs:
       - job: Maven build
         steps:
