@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Table } from 'reactstrap';
 import AddItemForm from '../AddItemForm/AdditemForm';
 import ShoppingListRow from './ShoppingListRow/ShoppingListRow';
@@ -9,10 +9,8 @@ function ShoppingListTable({ items }) {
     const handleEditClick = (index) => toggleEditForm(index)
 
     return (
-        <>
-            <h3> Add Item </h3>
+        <Fragment>
             <AddItemForm/>
-            <br/>
             <h1>Shopping List</h1>
             <Table>
                 <thead>
@@ -32,7 +30,7 @@ function ShoppingListTable({ items }) {
                 </tbody>
             </Table>
 
-        </>
+        </Fragment>
     );
 }
 

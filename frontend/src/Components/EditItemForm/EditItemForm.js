@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useSubmit } from "react-router-dom";
 import {Form, Row, Col, Label, Input, Button } from 'reactstrap'
-import editItemAction from "./editItemAction";
 
 
 function EditItemForm(props) {
@@ -30,6 +29,7 @@ function EditItemForm(props) {
                     <Col>
 
                         <Input
+                            data-testid="EditItemForm.name"
                             id="name"
                             name="name"
                             placeholder={name}
@@ -39,6 +39,7 @@ function EditItemForm(props) {
                     </Col>
                     <Col>
                         <Input
+                            data-testid="EditItemForm.quantity"
                             id="quantity"
                             name="quantity"
                             placeholder={quantity}
@@ -50,6 +51,7 @@ function EditItemForm(props) {
                     </Col>
                     <Col>
                         <Input
+                            data-testid="EditItemForm.unit"
                             id="unit"
                             name="unit"
                             placeholder={unit}
