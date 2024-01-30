@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
 import AddItemForm from './AdditemForm';
 import customRenderer from '../../Utils/customRenderer';
 
@@ -8,15 +9,6 @@ import customRenderer from '../../Utils/customRenderer';
 
 describe('AddItemForm', () => {
     it('renders correctly', () => {
-        const mockRoutes = [
-            {
-                path: "/create",
-                element: <AddItemForm />,
-                loader: () => FAKE_EVENT,
-            }
-        ]
-        // const { getByLabelText, getByText } = render(<AddItemForm />, {wrapper:MemoryRouter});
-
         const { getByLabelText, getByText } = customRenderer(<AddItemForm />);
 
         expect(getByLabelText('Item')).toBeInTheDocument();
