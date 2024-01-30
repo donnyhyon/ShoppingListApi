@@ -1,9 +1,10 @@
 import React from "react";
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import ItemDetails from "./ItemDetails";
 import '@testing-library/jest-dom/extend-expect';
+import customRenderer from '../../../Utils/customRenderer';
 
-//render helper- helps set-up elements around the componet your are testing, e.g table, tbody, tr.
+
 
 
 test("loads items correctly", () =>{
@@ -14,7 +15,7 @@ test("loads items correctly", () =>{
         unit: 'kg'
     }
 
-    render(
+    customRenderer(
         <table>
             <tbody>
                 <tr>

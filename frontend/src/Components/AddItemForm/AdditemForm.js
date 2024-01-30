@@ -3,7 +3,6 @@ import { Row, Button, Col } from 'reactstrap'
 import { Form, useSubmit } from "react-router-dom";
 import InputField from "./InputField/InputField";
 
-// Question- problem with clearing the form using actions and react router's form. Had to re-implement useSubmit.. is this correct? is there a better way?
 
 function AddItemForm() {
     const submit = useSubmit();
@@ -13,7 +12,6 @@ function AddItemForm() {
         event.currentTarget.form.reset();
     }
 
-    // HTML form is valid.
     return (
         <Fragment>
             <h3> Add Item </h3>
