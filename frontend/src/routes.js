@@ -1,3 +1,4 @@
+import React from "react";
 import AddItemForm from "./Components/AddItemForm/AdditemForm";
 import addItemAction from "./Components/AddItemForm/addItemAction";
 import EditItemForm from "./Components/EditItemForm/EditItemForm";
@@ -8,7 +9,7 @@ import ItemButtons from "./Components/ShoppingListTable/ShoppingListRow/ItemButt
 import deleteItemAction from "./Components/ShoppingListTable/ShoppingListRow/deleteItemAction";
 import shoppingListLoader from "./Components/ShoppingListTable/shoppingListLoader";
 import ShoppingListTableContainer from "./Container/ShoppingListTableContainer";
-// Question - confusion vs setting up proxy, and setting up routes. 
+
 const routes = [
   {
     path: "/shoppinglist",
