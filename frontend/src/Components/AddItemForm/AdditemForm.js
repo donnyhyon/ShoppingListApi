@@ -17,12 +17,12 @@ function AddItemForm() {
     return (
         <Fragment>
             <h3> Add Item </h3>
-            <Form method="POST" action="/create" >
+            <Form data-testid="AddItemForm.form" method="POST" action="/create" >
                 <Row className="row-cols-lg-auto g-3 align-items-center">
                     <InputField label="Item" name="item" placeholderText="Item" />
                     <InputField label="Quantity" name="quantity" placeholderText="Quantity" />
                     <InputField label="Units" name="unit" placeholderText="Units" />
-                    <Col><br/><Button type="submit" onClick={handleSubmit}>Submit</Button></Col>
+                    <Col><br/><Button data-testid="AddItemForm.submitButton" type="submit" onClick={handleSubmit}>Submit</Button></Col>
 
                 </Row>
             </Form>

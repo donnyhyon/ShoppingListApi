@@ -7,6 +7,7 @@ function InputField({label,name, placeholderText }) {
             <Label>
                 {label}
                 <Input
+                data-testid={`InputField.${name}`}
                 id={name}
                 name={name}
                 placeholder={placeholderText}
