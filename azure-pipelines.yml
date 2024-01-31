@@ -30,7 +30,7 @@ stages:
           - task: Npm@1
             inputs:
               workingDir:  "./frontend"
-              command: "test"
+              customCommand: "test"
 
   # - stage: Deploy
   #   jobs:
