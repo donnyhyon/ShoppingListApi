@@ -26,7 +26,15 @@ stages:
           - task: Npm@1
             inputs:
               workingDir:  "./frontend"
-              customCommand: "clean install test"
+              command: "clean"
+          - task: Npm@1
+            inputs:
+              workingDir:  "./frontend"
+              command: "install"
+          - task: Npm@1
+            inputs:
+              workingDir:  "./frontend"
+              command: "test"
 
   # - stage: Deploy
   #   jobs:
