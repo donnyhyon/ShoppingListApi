@@ -25,6 +25,7 @@ stages:
         steps:
           - task: Npm@1
             inputs:
+              workingDirectory: "/fontend"
               customCommand: "clean install test"
 
   # - stage: Deploy
