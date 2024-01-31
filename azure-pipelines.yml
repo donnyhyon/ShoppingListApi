@@ -10,7 +10,7 @@ stages:
   - stage: "TestBuild"
     jobs:
       - job: BackendTests
-        timeoutInMinutes: 10
+        timeoutInMinutes: "10"
         steps:
           - task: Maven@3
             inputs:
@@ -23,10 +23,9 @@ stages:
               goals: package
       - job: Frontend
         steps:
-          - script: |
-              cd frontend
-              npm install
-              npm test
+          - task: Npm@1
+            inputs:
+              customCommand: "clean install test"
 
   # - stage: Deploy
   #   jobs:
