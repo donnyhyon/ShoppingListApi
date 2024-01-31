@@ -9,7 +9,7 @@ pool:
 stages:
   - stage: "TestBuild"
     jobs:
-      - job: Backend-Tests
+      - job: BackendTests
         timeoutInMinutes: 10
         steps:
           - task: Maven@3
