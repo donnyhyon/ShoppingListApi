@@ -27,10 +27,8 @@ stages:
             inputs:
               workingDir:  "./frontend"
               command: "install"
-          - task: Npm@1
-            inputs:
-              workingDir:  "./frontend"
-              customCommand: "test"
+          
+          - script: "npm test"
 
   # - stage: Deploy
   #   jobs:
