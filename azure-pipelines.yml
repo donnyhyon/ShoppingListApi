@@ -26,10 +26,6 @@ stages:
           - task: Npm@1
             inputs:
               workingDir:  "./frontend"
-              command: "clean"
-          - task: Npm@1
-            inputs:
-              workingDir:  "./frontend"
               command: "install"
           - task: Npm@1
             inputs:
