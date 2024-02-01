@@ -12,7 +12,7 @@
 ### Running with only db dockerised (localdev)
 `cd database && docker build -t db:latest .`
 
-`docker run -5432:5432 -it db:latest`
+`docker run -p5432:5432 -it db:latest`
 
 `cd ../backend && mvn clean package`
 
