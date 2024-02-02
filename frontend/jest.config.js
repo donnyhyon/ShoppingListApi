@@ -4,6 +4,6 @@ module.exports = {
       "^.+\\.[t|j]sx?$": "babel-jest"
     },
     transformIgnorePatterns: [
-      "<rootDir>/node_modules/(?!(@adobe)/)"
+      "<rootDir>/node_modules/node_modules"
     ],
   }
