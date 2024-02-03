@@ -25,6 +25,7 @@ stages:
         steps:
           - script: |
               cd ./frontend
+              npm ci
               npm test
           # - task: Npm@1
           #   displayName: npm run test
