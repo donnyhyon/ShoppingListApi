@@ -24,6 +24,8 @@ stages:
       - job: Frontend
         steps:
           - script: pwd
+          - script: cd frontend
+          - script: pwd
           # - task: Npm@1
           #   displayName: npm run test
           #   inputs:
