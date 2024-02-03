@@ -23,8 +23,9 @@ stages:
       #         goals: package
       - job: Frontend
         steps:
-          - script: pwd
-            workingDirectory: ./frontned
+          - script: |
+              cd /path/to/your/directory
+              echo 'Now in the desired directory'
           # - task: Npm@1
           #   displayName: npm run test
           #   inputs:
