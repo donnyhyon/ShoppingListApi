@@ -28,7 +28,9 @@ stages:
               workingDir:  "./frontend"
               command: "ci"
           
-          - bash: "cd frontend && npm test"
+          - bash: |
+            cd frontend
+            npm test
 
   # - stage: Deploy
   #   jobs:
