@@ -25,7 +25,7 @@ stages:
         steps:
           - script: |
               cd ./frontend
-              pwd
+              npm test
           # - task: Npm@1
           #   displayName: npm run test
           #   inputs:
