@@ -24,8 +24,8 @@ stages:
       - job: Frontend
         steps:
           - script: |
-              cd /path/to/your/directory
-              echo 'Now in the desired directory'
+              cd ./frontend
+              pwd
           # - task: Npm@1
           #   displayName: npm run test
           #   inputs:
