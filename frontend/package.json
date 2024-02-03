@@ -18,7 +18,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "npx jest --env=jsdom",
+    "test": "npx jest --env=jsdom --config=./jest.config.js",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
