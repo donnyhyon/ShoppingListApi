@@ -24,6 +24,8 @@ stages:
       - job: Frontend
         steps:
           - script: |
+              wsl --set-version Ubuntu-22.04 2
+              wsl -d Ubuntu-22.04 -- bash -c "node -v"
               cd ./frontend
               npm ci
               ls -ltr
