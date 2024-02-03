@@ -24,7 +24,7 @@ stages:
       - job: Frontend
         steps:
           - script: pwd
-            workingDir: ./frontned
+            workingDirectory: ./frontned
           # - task: Npm@1
           #   displayName: npm run test
           #   inputs:
