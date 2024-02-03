@@ -27,6 +27,7 @@ stages:
               cd ./frontend
               npm ci
               ls -ltr
+              pwd
               npm test
           # - task: Npm@1
           #   displayName: npm run test
