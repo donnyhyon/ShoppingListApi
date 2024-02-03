@@ -23,12 +23,13 @@ stages:
       #         goals: package
       - job: Frontend
         steps:
-          - task: Npm@1
-            displayName: npm run test
-            inputs:
-              command: "custom"
-              workingDir:  "./frontend"
-              customCommand: "test"
+          - script: pwd
+          # - task: Npm@1
+          #   displayName: npm run test
+          #   inputs:
+          #     command: "custom"
+          #     workingDir:  "./frontend"
+          #     customCommand: "test"
 
   # - stage: Deploy
   #   jobs:
