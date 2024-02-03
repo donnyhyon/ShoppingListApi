@@ -24,13 +24,11 @@ stages:
       - job: Frontend
         steps:
           - task: Npm@1
+            displayName: npm run test
             inputs:
+              command: "custom"
               workingDir:  "./frontend"
-              command: "ci"
-          
-          - bash: |
-            cd frontend
-            npm test
+              customCommand: "test"
 
   # - stage: Deploy
   #   jobs:
