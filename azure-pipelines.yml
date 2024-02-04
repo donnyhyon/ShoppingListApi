@@ -25,10 +25,11 @@ stages:
         steps:
           - task: NodeTool@0
             inputs:
-              versionSpec: '10.14.1'
+              versionSpec: '20.11.0'
             displayName: 'Install Node.js'
 
           - script: |
+              cd frontend
               npm install
               npm test
             displayName: 'npm install and test'
