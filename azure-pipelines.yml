@@ -26,19 +26,14 @@ stages:
           - script: |
               cd ./frontend
               npm ci
-              ls -ltr
-              pwd
-              which npm
               npm test
-          # - task: Npm@1
-          #   displayName: npm run test
-          #   inputs:
-          #     command: "custom"
-          #     workingDir:  "./frontend"
-          #     customCommand: "test"
 
-  # - stage: Deploy
-  #   jobs:
-  #     - job: Deploy_backend_to_azure
-  #       steps:
-  #         - script: echo "Coming Soon!"
+          - task: PublishTestResults@2
+            displayName: 'Publish Unit Test Results'
+            condition: succeededOrFailed()
+            inputs:
+                testResultsFormat: 'JUnit'
+                testResultsFiles: '**/junit.xml'
+                mergeTestResults: true
+                failTaskOnFailedTests: true
+                testRunTitle: 'React App Test'
