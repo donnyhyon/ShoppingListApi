@@ -28,6 +28,8 @@ stages:
               versionSpec: '20.11.0'
             displayName: 'Install Node.js'
 
+          - script: echo $(Build.SourcesDirectory)
+
           - task: Npm@1
             displayName: 'Run Tests'
             inputs:
