@@ -7,9 +7,9 @@ trigger:
 pool:
   name: FoodAppAgents
 stages:
-  - stage: "TestBuild"
+  - stage: Testing
     jobs:
-      - job: BackendTests
+      - job: Backend
         timeoutInMinutes: "10"
         steps:
           - task: Maven@3
@@ -21,6 +21,7 @@ stages:
               publishJUnitResults: true
               testResultsFiles: "**/surefire-reports/TEST-*.xml"
               goals: package
+
       - job: Frontend
         steps:
           - task: NodeTool@0
