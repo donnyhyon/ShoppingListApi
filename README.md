@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/dhyon333/DonnyFoodApp/_apis/build/status%2Fdonnyhyon.ShoppingListApi?branchName=main)](https://dev.azure.com/dhyon333/DonnyFoodApp/_build/latest?definitionId=11&branchName=main)
+
 ### Scripts for local dev
 `./start-fresh.sh` pulls, builds docker DB containers. Packages jar backend + tests. 
 
