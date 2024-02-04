@@ -18,7 +18,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest --env=jsdom",
+    "test": "jest --env=jsdom --config=./jest.config.js --testPathIgnorePatterns=assets --reporters=default --reporters=jest-junit",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -40,9 +40,11 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.21.0",
     "@babel/preset-env": "^7.23.8",
     "@babel/preset-react": "^7.23.3",
     "@testing-library/react": "^14.1.2",
-    "jest": "^27.5.1"
+    "jest": "^27.5.1",
+    "jest-junit": "^16.0.0"
   }
 }
