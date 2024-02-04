@@ -18,7 +18,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest --env=jsdom --config=./jest.config.js",
+    "test": "jest --env=jsdom --config=./jest.config.js --testPathIgnorePatterns=assets --reporters=default --reporters=jest-junit",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
