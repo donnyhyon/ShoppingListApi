@@ -28,16 +28,14 @@ stages:
               versionSpec: '20.11.0'
             displayName: 'Install Node.js'
 
-          - script: echo $(Build.SourcesDirectory)
-
           - task: Npm@1
-            displayName: 'Run Tests'
+            displayName: 'npm install'
             inputs:
               command: 'custom'
               workingDir: $(Build.SourcesDirectory)/frontend
               customCommand: 'install'
           - task: Npm@1
-            displayName: 'Run Tests'
+            displayName: 'npm test'
             inputs:
               command: 'custom'
               workingDir: $(Build.SourcesDirectory)/frontend
@@ -53,18 +51,4 @@ stages:
               failTaskOnFailedTests: true
               testRunTitle: 'React App Test'
 
-        # steps:
-        #   - script: |
-        #       cd ./frontend
-        #       npm ci
-        #       npm test
 
-        #   - task: PublishTestResults@2
-        #     displayName: 'Publish Unit Test Results'
-        #     condition: succeededOrFailed()
-        #     inputs:
-        #         testResultsFormat: 'JUnit'
-        #         testResultsFiles: '**/junit.xml'
-        #         mergeTestResults: true
-        #         failTaskOnFailedTests: true
-        #         testRunTitle: 'React App Test'
