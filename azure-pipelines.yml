@@ -9,18 +9,18 @@ pool:
 stages:
   - stage: "TestBuild"
     jobs:
-      # - job: BackendTests
-      #   timeoutInMinutes: "10"
-      #   steps:
-      #     - task: Maven@3
-      #       inputs:
-      #         mavenPomFile: backend/pom.xml
-      #         mavenOptions: -Xmx3072m
-      #         javaHomeOption: JDKVersion
-      #         jdkArchitectureOption: x64
-      #         publishJUnitResults: true
-      #         testResultsFiles: "**/surefire-reports/TEST-*.xml"
-      #         goals: package
+      - job: BackendTests
+        timeoutInMinutes: "10"
+        steps:
+          - task: Maven@3
+            inputs:
+              mavenPomFile: backend/pom.xml
+              mavenOptions: -Xmx3072m
+              javaHomeOption: JDKVersion
+              jdkArchitectureOption: x64
+              publishJUnitResults: true
+              testResultsFiles: "**/surefire-reports/TEST-*.xml"
+              goals: package
       - job: Frontend
         steps:
           - task: NodeTool@0
