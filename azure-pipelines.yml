@@ -35,7 +35,13 @@ stages:
             inputs:
               command: 'custom'
               workingDir: $(Build.SourcesDirectory)/frontend
-              customCommand: 'install test'
+              customCommand: 'install'
+          - task: Npm@1
+            displayName: 'Run Tests'
+            inputs:
+              command: 'custom'
+              workingDir: $(Build.SourcesDirectory)/frontend
+              customCommand: 'test'
 
           - task: PublishTestResults@2
             displayName: 'Publish Unit Test Results'
