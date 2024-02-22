@@ -65,6 +65,15 @@ public class UserTest {
 
         assertEquals(passwordValue, user.getPassword());
     }
+
+    @Test
+    public void testEmail(){
+        String emailValue = "testUser@example.com";
+
+        user.setEmail(emailValue);
+
+        assertEquals(emailValue, user.getEmail());
+    }
 }
 
 
