@@ -31,6 +31,24 @@ public class UserTest {
     }
 
     @Test
+    public void testFirstname(){
+        String firstnameValue = "firstname";
+
+        user.setFirstname(firstnameValue);
+
+        assertEquals(firstnameValue, user.getFirstname());
+    }
+
+    @Test
+    public void testSurname(){
+        String surnameValue = "surname";
+
+        user.setSurname(surnameValue);
+
+        assertEquals(surnameValue, user.getSurname());
+    }
+
+    @Test
     public void testUsername(){
         String usernameValue = "test user";
 
@@ -40,12 +58,13 @@ public class UserTest {
     }
 
     @Test
-    public void testFirstname(){
-        String firstnameValue = "first name";
+    public void testPassword(){
+        String passwordValue = "secretpassword";
 
-        user.setFirstname(firstnameValue);
+        user.setPassword(passwordValue);
 
-        assertEquals(firstnameValue, user.getFirstname());
+        assertEquals(passwordValue, user.getPassword());
     }
-
 }
+
+
