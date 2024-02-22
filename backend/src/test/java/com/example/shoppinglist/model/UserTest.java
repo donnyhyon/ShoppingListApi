@@ -30,4 +30,22 @@ public class UserTest {
         assertEquals(idValue, user.getId());
     }
 
+    @Test
+    public void testUsername(){
+        String usernameValue = "test user";
+
+        user.setUsername(usernameValue);
+
+        assertEquals(usernameValue, user.getUsername());
+    }
+
+    @Test
+    public void testFirstname(){
+        String firstnameValue = "first name";
+
+        user.setFirstname(firstnameValue);
+
+        assertEquals(firstnameValue, user.getFirstname());
+    }
+
 }
