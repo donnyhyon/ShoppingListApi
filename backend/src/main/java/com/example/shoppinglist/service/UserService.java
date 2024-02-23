@@ -28,4 +28,8 @@ public class UserService {
         return userOptional.get();
     }
 
+    public Iterable<User> findAll(){
+        return this.userRepository.findAll();
+    }
+
 }
