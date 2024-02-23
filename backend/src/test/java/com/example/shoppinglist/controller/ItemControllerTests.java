@@ -1,4 +1,4 @@
-package com.example.shoppinglist.unittests;
+package com.example.shoppinglist.controller;
 
 import com.example.shoppinglist.controller.ItemController;
 import com.example.shoppinglist.model.Item;

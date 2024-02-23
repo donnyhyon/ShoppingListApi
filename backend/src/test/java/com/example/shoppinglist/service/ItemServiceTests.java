@@ -1,4 +1,4 @@
-package com.example.shoppinglist.unittests;
+package com.example.shoppinglist.service;
 
 import com.example.shoppinglist.model.Item;
 import com.example.shoppinglist.repository.ItemRepository;
