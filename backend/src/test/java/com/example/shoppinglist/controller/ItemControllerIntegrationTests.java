@@ -1,4 +1,4 @@
-package com.example.shoppinglist.integrationtests;
+package com.example.shoppinglist.controller;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
