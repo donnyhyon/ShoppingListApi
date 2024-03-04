@@ -11,13 +11,19 @@ import routes from "./routes";
 import NavBar from "./Components/NavBar/NavBar";
 import store from './store'
 import { Provider } from 'react-redux'
+import { increment, decrement } from "./counterSlice";
 
 
 const router = createBrowserRouter(routes);
 
+
+
 ReactDOM.createRoot(document.getElementById("root")).render(
+
+  //dispatch action in this location- loads items upon loading page.
   <React.StrictMode>
     <NavBar />
+    //Create a wrapper to wrap around prvider that initiates the get calls.
     <Provider store={store}>
       <RouterProvider router={router} />
     </Provider>,

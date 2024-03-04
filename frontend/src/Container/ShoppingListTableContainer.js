@@ -4,9 +4,10 @@ import ShoppingListTable from '../Components/ShoppingListTable/ShoppingListTable
 
 function ShoppingListTableContainer() {
     const { items } = useLoaderData()
+    const counter = useSelector((state) => { state.counter.value })
     return (
         <>
-            <ShoppingListTable items={items}/>
+            <ShoppingListTable items={items} />
         </>
     );
 }
