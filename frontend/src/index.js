@@ -20,7 +20,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   // Create a wrapper to wrap around prvider that initiates the get calls.
 
   <React.StrictMode>
-    <NavBar />
+    
     <Provider store={store}>
       <RouterProvider router={router} />
     </Provider>
