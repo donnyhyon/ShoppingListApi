@@ -11,7 +11,6 @@ import routes from "./routes";
 import NavBar from "./Components/NavBar/NavBar";
 import store from './store'
 import { Provider } from 'react-redux'
-import { increment, decrement } from "./counterSlice";
 
 
 const router = createBrowserRouter(routes);
