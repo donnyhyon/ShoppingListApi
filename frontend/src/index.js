@@ -20,10 +20,11 @@ const router = createBrowserRouter(routes);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 
-  //dispatch action in this location- loads items upon loading page.
+  // Dispatch action in this location- loads items upon loading page.
+  // Create a wrapper to wrap around prvider that initiates the get calls.
+
   <React.StrictMode>
     <NavBar />
-    //Create a wrapper to wrap around prvider that initiates the get calls.
     <Provider store={store}>
       <RouterProvider router={router} />
     </Provider>,
