@@ -13,6 +13,8 @@ function NavBar() {
                 <div class="navbar-nav">
                     <a class="nav-link active" aria-current="page" href="/shoppinglist">Shopping List</a>
                     <a class="nav-link" href="/recipes">Recipes</a>
+                    <a class="nav-link" href="/counter">Counter</a>
+
                     {/* <a class="nav-link" href="/Calendar">Calendar</a> */}
                     {/* <a class="nav-link" href="/Calories">Calories</a> */}
                 </div>

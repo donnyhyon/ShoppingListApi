@@ -24,7 +24,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <NavBar />
     <Provider store={store}>
       <RouterProvider router={router} />
-      <Counter />
     </Provider>,
   </React.StrictMode>
 );
