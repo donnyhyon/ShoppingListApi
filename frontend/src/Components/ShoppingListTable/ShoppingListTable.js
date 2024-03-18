@@ -7,7 +7,7 @@ function ShoppingListTable({ items }) {
     const [editingIndex, setEditingIndex] = useState();
     const toggleEditForm = (index) => setEditingIndex(previndex => previndex === index ? null : index);
     const handleEditClick = (index) => toggleEditForm(index)
-
+// delete dispatch to hit the delteItem reducer. pass it in an A1, need to set the property of a component to have the key
     return (
         <Fragment>
             <AddItemForm/>

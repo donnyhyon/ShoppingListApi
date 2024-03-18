@@ -13,6 +13,7 @@ import { Counter } from "./Components/Counter/Counter";
 
 const routes = [
   {
+    
     //With current architecture I cannot use a router method as this re-directs every time action is made. 
     path: "/shoppinglist",
     element: <ShoppingListTableContainer/>,
