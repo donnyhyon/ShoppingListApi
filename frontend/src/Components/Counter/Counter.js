@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { decrement, increment } from '../../counterSlice'
+import { decrement, increment, resetCount } from '../../counterSlice'
 
 export function Counter() {
   const count = useSelector((state) => state.counter.value)
@@ -21,6 +21,12 @@ export function Counter() {
           onClick={() => dispatch(decrement())}
         >
           Decrement
+        </button>
+        <button
+          aria-label="Reset value"
+          onClick={() => dispatch(resetCount())}
+        >
+          Reset
         </button>
       </div>
     </div>
