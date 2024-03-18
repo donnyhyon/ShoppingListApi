@@ -23,6 +23,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <NavBar />
     <Provider store={store}>
       <RouterProvider router={router} />
-    </Provider>,
+    </Provider>
   </React.StrictMode>
 );
