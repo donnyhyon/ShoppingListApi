@@ -8,7 +8,6 @@ import './index.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import routes from "./routes";
-import NavBar from "./Components/NavBar/NavBar";
 import store from './store'
 import { Provider } from 'react-redux'
 
