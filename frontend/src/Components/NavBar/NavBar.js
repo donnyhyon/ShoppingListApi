@@ -12,12 +12,14 @@ function NavBar() {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <NavLink to="/shoppinglist">Shopping List</NavLink>
-                    <a class="nav-link" href="/recipes">Recipes</a>
-                    <NavLink to="/counter">Counter</NavLink>
+                    <NavLink className="nav-link" to="/shoppinglist">Shopping List</NavLink>
+                    <NavLink className="nav-link" to="/counter">Counter</NavLink>
+                    <NavLink className="nav-link" to="/recipes">Recipes</NavLink>
 
-                    {/* <a class="nav-link" href="/Calendar">Calendar</a> */}
-                    {/* <a class="nav-link" href="/Calories">Calories</a> */}
+                    {/* <NavLink className="nav-link" to="/shoppinglist">Shopping List</NavLink> */}
+                    {/* <NavLink className="nav-link" to="/shoppinglist">Shopping List</NavLink> */}
+                    {/* <NavLink className="nav-link" to="/shoppinglist">Shopping List</NavLink> */}
+
                 </div>
                 </div>
             </div>
