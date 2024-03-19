@@ -2,7 +2,7 @@ import React from 'react';
 import EditItemForm from '../../EditItemForm/EditItemForm';
 import ItemDetails from './ItemDetails';
 import ItemButtons from './ItemButtons';
-import { Counter } from '../../Counter/Counter';
+import Counter from '../../Counter/Counter';
 
 
 function ShoppingListRow({ item, index, handleEditClick, editingIndex }) {
