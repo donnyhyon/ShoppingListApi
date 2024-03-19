@@ -1,3 +1,5 @@
+import { redirect } from "react-router-dom";
+
     const deleteItemAction = async ({request}) => {
         const formData = await request.formData();
         const itemToDelete = Object.fromEntries(formData.entries())
@@ -7,7 +9,7 @@
             })
 
             if (response.ok) {
-                // return redirect("/shoppinglist");
+                return redirect("/shoppinglist");
             }
         } catch (error) {
             console.error('Failed to delete item:', error);
