@@ -2,7 +2,6 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import ShoppingListTable from '../Components/ShoppingListTable/ShoppingListTable';
 import { useSelector } from 'react-redux';
-import NavBar from '../Components/NavBar/NavBar';
 
 function ShoppingListTableContainer() {
     // const { items } = useLoaderData()
@@ -12,7 +11,6 @@ function ShoppingListTableContainer() {
 
     return (
         <>
-            <NavBar />
             <ShoppingListTable items={Object.values(items)} />
             {count}
         </>

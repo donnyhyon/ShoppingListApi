@@ -9,48 +9,45 @@ import ItemButtons from "./Components/ShoppingListTable/ShoppingListRow/ItemButt
 import deleteItemAction from "./Components/ShoppingListTable/ShoppingListRow/deleteItemAction";
 import shoppingListLoader from "./Components/ShoppingListTable/shoppingListLoader";
 import ShoppingListTableContainer from "./Container/ShoppingListTableContainer";
-import { Counter } from "./Components/Counter/Counter";
+import Counter from "./Components/Counter/Counter";
 
 const routes = [
   { 
     path: "/",
     element: <PageLayout />,
     children: [
-      {
-        //With current architecture I cannot use a router method as this re-directs every time action is made. 
-        path: "/shoppinglist",
+      { 
+        path: "shoppinglist",
         element: <ShoppingListTableContainer/>,
         loader: shoppingListLoader,
         children: [
           {
-            path: "/shoppinglist/create",
+            path: "create",
             element: <AddItemForm />,
             action: addItemAction,
-            
           },
           {
-            path: "/shoppinglist/delete",
+            path: "delete",
             element: <ItemButtons />,
             action: deleteItemAction,
           },
           {
-            path: "/shoppinglist/edit",
+            path: "edit",
             element: <EditItemForm />,
             action: editItemAction,
           },
         ]
       },
       { 
-        path: "/recipes",
+        path: "recipes",
         element: <RecipePage />,
       },
       { 
-        path: "/counter",
+        path: "counter",
         element: <Counter />,
       },
     ]
   },
-
 ];
 
 export default routes;

@@ -1,15 +1,13 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { decrement, increment, resetCount } from '../../counterSlice'
-import NavBar from '../NavBar/NavBar'
 
-export function Counter() {
+function Counter() {
   const count = useSelector((state) => state.counter.value)
   const dispatch = useDispatch()
 
   return (
     <>
-      <NavBar />
       <div>
         <button
           aria-label="Increment value"
@@ -34,3 +32,5 @@ export function Counter() {
     </>
   )
 }
+
+export default Counter;
