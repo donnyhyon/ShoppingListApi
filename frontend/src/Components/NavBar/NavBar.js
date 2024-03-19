@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 
 
 function NavBar() {
@@ -11,10 +12,14 @@ function NavBar() {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="/shoppinglist">Shopping List</a>
-                    <a class="nav-link" href="/recipes">Recipes</a>
-                    {/* <a class="nav-link" href="/Calendar">Calendar</a> */}
-                    {/* <a class="nav-link" href="/Calories">Calories</a> */}
+                    <NavLink className="nav-link" to="/shoppinglist">Shopping List</NavLink>
+                    <NavLink className="nav-link" to="/counter">Counter</NavLink>
+                    <NavLink className="nav-link" to="/recipes">Recipes</NavLink>
+
+                    {/* <NavLink className="nav-link" to="/shoppinglist">Shopping List</NavLink> */}
+                    {/* <NavLink className="nav-link" to="/shoppinglist">Shopping List</NavLink> */}
+                    {/* <NavLink className="nav-link" to="/shoppinglist">Shopping List</NavLink> */}
+
                 </div>
                 </div>
             </div>
