@@ -13,7 +13,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.mockito.Mockito.when;
@@ -46,7 +46,10 @@ public class ItemControllerTests {
         item2.setQuantity(1F);
         item2.setUnit("pack");
 
-        List<Item> items = Arrays.asList(item1, item2);
+        List<Item> items = new ArrayList<Item>();
+        items.add(item1);
+        items.add(item2);
+
 
         when(mockedItemService.findAll()).thenReturn(items);
 
@@ -123,7 +126,7 @@ public class ItemControllerTests {
         itemToDelete.setQuantity(1F);
         itemToDelete.setUnit("can");
 
-        when(mockedItemService.removeItem(1L)).thenReturn(itemToDelete);
+        when(mockedItemService.removeItem(1)).thenReturn(itemToDelete);
 
         mockMvc.perform(MockMvcRequestBuilders.delete("/api/shoppinglist/1")
             .contentType(MediaType.APPLICATION_JSON))

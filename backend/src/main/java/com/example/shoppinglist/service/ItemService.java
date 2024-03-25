@@ -61,8 +61,8 @@ public class ItemService {
          return this.itemRepository.save(itemToSave);
      }
 
-    public Item removeItem(@PathVariable("id") Long id) {
-        Optional<Item> remoteItemOption = this.itemRepository.findById(id);
+    public Item removeItem(@PathVariable("id") Integer id) {
+        Optional<Item> remoteItemOption = this.itemRepository.findById(Long.valueOf(id));
         if (remoteItemOption.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No item with that ID in the database");
         }
