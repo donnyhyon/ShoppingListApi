@@ -3,6 +3,7 @@ package com.example.shoppinglist.hexagonal.adapters;
 import com.example.shoppinglist.model.Item;
 import com.example.shoppinglist.hexagonal.ports.ItemPort;
 
+import com.example.shoppinglist.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,26 +26,26 @@ public class ItemAdapter {
 
     @GetMapping()
     public Iterable<Item> getItems() {
-        return this.ItemPort.findAll();
+        return this.itemPort.findAll();
     }
 
     @GetMapping("/{id}")
     public Item getItemById(@PathVariable Integer id) {
-        return this.itemService.findById(id);
+        return this.itemPort.findById(id);
     }
 
     @PostMapping("/new")
     public Item addItem(@RequestBody Item item) {
-        return this.itemService.save(item);
+        return this.itemPort.save(item);
     }
 
     @PutMapping("/{id}")
     public Item updateItem(@PathVariable Integer id, @RequestBody Item newItem) {
-        return this.itemService.updateItem(id, newItem);
+        return this.itemPort.updateItem(id, newItem);
     }
 
     @DeleteMapping("/{id}")
-    public Item removeItem(@PathVariable("id") Long id) {
-        return this.itemService.removeItem(id);
+    public Item removeItem(@PathVariable("id") Integer id) {
+        return this.itemPort.removeItem(id);
     }
 }
