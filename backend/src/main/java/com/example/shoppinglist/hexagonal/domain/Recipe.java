@@ -19,9 +19,9 @@ public class Recipe {
     private String name;
     @Column(name = "INGREDIENTS")
     private List<Item> ingredients;
-    @Column(name = "PORTIONSIZE")
+    @Column(name = "PORTION SIZE")
     private Integer portionSize;
-    @Column(name = "COOKINGMETHOD")
+    @Column(name = "COOKING METHOD")
     private List<String> cookingMethod;
 
     public Recipe(Long id, String name, List<Item> ingredients, Integer portionSize, List<String> cookingMethod){
