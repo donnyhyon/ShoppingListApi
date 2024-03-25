@@ -9,9 +9,9 @@ public class Recipe {
     private String name;
     private List<Item> ingredients;
     private Integer portionSize;
-    private String cookingMethod;
+    private List<String> cookingMethod;
 
-    public Recipe(Long id, String name, List<Item> ingredients, Integer portionSize, String cookingMethod){
+    public Recipe(Long id, String name, List<Item> ingredients, Integer portionSize, List<String> cookingMethod){
         this.id = id;
         this.name = name;
         this.ingredients = ingredients;

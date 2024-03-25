@@ -40,7 +40,7 @@ public class ItemAdapter {
 
     @PutMapping("/{id}")
     public Item updateItem(@PathVariable Integer id, @RequestBody Item newItem) {
-         return this.itemService.updateItem(id, newItem);
+        return this.itemService.updateItem(id, newItem);
     }
 
     @DeleteMapping("/{id}")
