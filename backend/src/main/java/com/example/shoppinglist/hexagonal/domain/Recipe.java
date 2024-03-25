@@ -1,9 +1,17 @@
 package com.example.shoppinglist.hexagonal.domain;
 
 import com.example.shoppinglist.model.Item;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
+@Entity
+@Table(name = "RECIPES")
+@Getter
+@Setter
 public class Recipe {
     private Long id;
     private String name;
