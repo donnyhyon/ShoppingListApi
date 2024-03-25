@@ -1,12 +1,10 @@
 package com.example.shoppinglist.hexagonal.ports;
 
-
 import com.example.shoppinglist.model.Item;
 import com.example.shoppinglist.service.ItemService;
 
 import java.beans.JavaBean;
 
-@JavaBean
 public class ItemPort {
 	private ItemService itemService;
 
