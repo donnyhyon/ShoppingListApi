@@ -9,7 +9,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,7 +38,9 @@ public class ItemServiceTests {
         item2.setQuantity(1F);
         item2.setUnit("pack");
 
-        List<Item> items =Arrays.asList(item1, item2);
+        List<Item> items = new ArrayList<Item>(){};
+        items.add(item1);
+        items.add(item2);
 
         when(mockedItemRepository.findAll()).thenReturn(items);
 
@@ -105,7 +107,7 @@ public class ItemServiceTests {
 
         when(mockedItemRepository.findById(1L)).thenReturn(Optional.of(itemToRemove));
 
-        Item result = itemService.removeItem(1L);
+        Item result = itemService.removeItem(1);
 
         assertEquals(itemToRemove,result);
 
