@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name = "ITEMS")
 @Getter
@@ -21,4 +23,11 @@ public class Item {
 
     @Column(name = "UNIT")
     private String unit;
+
+    public Item(Long id, String name, Float quantity, String unit) {
+        this.id = id;
+        this.name = name;
+        this.quantity = quantity;
+        this.unit = unit;
+    }
 }
